@@ -1,8 +1,19 @@
 # Welcome!
 
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/your-username)
+
 ---
 
-## About This Project
+## 📖 Table of Contents
+
+* [About This Project](#about-this-project)
+* [Who This Is For (And Who It Isn't)](#who-this-is-for-and-who-it-isnt)
+* [References](#references)
+* [Contributing](#contributing)
+
+---
+
+## 🌟 About This Project
 
 This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab.
 
@@ -10,15 +21,15 @@ This guide is designed to make setting up a homelab more accessible to those who
 
 ---
 
-## Who This is For (And Who It Isn't)
+## 🎯 Who This Is For (And Who It Isn't)
 
-* Homelabs are **not** for someone who wants to set it up once and never touch it again. While you could argue that if you never open it to the worldwide web, you would be safe even if a security flaw is found later, you would be doing so at your own risk.
-* This is for someone who wants to reduce or completely eliminate their subscription fees.
-* This is for someone who loves to tinker with things.
+* ❌ Homelabs are **not** for someone who wants to set it up once and never touch it again. While you could argue that if you never open it to the worldwide web, you would be safe even if a security flaw is found later, you would be doing so at your own risk.
+* ✅ This is for someone who wants to reduce or completely eliminate their subscription fees.
+* ✅ This is for someone who loves to tinker with things.
 
 ---
 
-## References
+## 🤝 References
 
 A huge thank you to all the people referenced below—this project would not be possible without them. I will not be posting a link each time a reference is used, so please refer to this list.
 
@@ -33,15 +44,19 @@ A huge thank you to all the people referenced below—this project would not be 
 
 ---
 
-## Contributing
+## 🚀 Contributing
 
 If you found this project helpful, please consider contributing.
 
 Here are a few ways to contribute:
 
-* Share this project with others.
-* Help others who are less tech-savvy set up and manage their own homelabs.
-* Add to this repository with any tweaks you make. Once you get in the habit, this doesn't add much time to your workflow. I document every change I make in a pulled version of this repository, which adds only a few minutes at most to my workflow.
-* Support the open-source apps used in this project.
-* Support the references I've included.
-* Buy me a coffee to allow me to dedicate more time to this and other future projects.
+* ➡️ Share this project with others.
+* ➡️ Help others who are less tech-savvy set up and manage their own homelabs.
+* ➡️ Add to this repository with any tweaks you make. Once you get in the habit, this doesn't add much time to your workflow. I document every change I make in a pulled version of this repository, which adds only a few minutes at most to my workflow.
+* ➡️ Support the open-source apps used in this project.
+* ➡️ Support the references I've included.
+* ➡️ Buy me a coffee to allow me to dedicate more time to this and other future projects.
+
+---
+
+**Next Page:** [Link to next page here]

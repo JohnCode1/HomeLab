@@ -1,0 +1,8 @@
+#docker run -it -p 8080:80 ghcr.io/gchq/cyberchef:latest
+
+services:
+  cyberchef:
+    image: ghcr.io/gchq/cyberchef:10.19.4
+    ports:
+      - 8084:80
+    restart: unless-stopped

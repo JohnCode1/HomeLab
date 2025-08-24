@@ -27,7 +27,7 @@ services:
   # The same for below
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:latest
+    image: fallenbagel/jellyseerr:2.7.3
     environment:
       - PUID=1000
       - PGID=1000

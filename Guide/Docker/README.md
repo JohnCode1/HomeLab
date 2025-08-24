@@ -8,7 +8,7 @@ Follow these steps to install Docker on your system.
 
 1.  **Download the Docker installation script.**
     ```bash
-    curl -fsSL [https://get.docker.com](https://get.docker.com) -o get-docker.sh
+    curl -fsSL https://get.docker.com -o get-docker.sh
     ```
 
 2.  **Run the installation script.**

@@ -16,51 +16,51 @@
 
 # 📖 List of All Pages
 
-* \[\[About Project]]
+* [About Project](../..)
 
-* \[\[HardwareSelections]]
+* [HardwareSelections](../Hardware)
 
-* \[\[UsefulInfo.md]]
+* [UsefulInfo](../UsefulInfo)
 
-* \[\[ProxmoxSetUp]]
+* [Proxmox](../Proxmox)
 
-* \[\[Linux Container]]
+* [Linux Container](../LinuxContainer)
 
-* \[\[Linux VM]]
+* [Linux VM](../LinuxVM)
 
-* \[\[Samba SetUp]]
+* [Samba](../Samba)
 
-* \[\[Backup]]
+* [Backup](../BackUp)
 
-* Docker
+* [Docker](../Docker)
 
-* Nginx Proxy Manager
+* [Nginx Proxy Manager](../Nginx)
 
-* Windows VM
+* [Windows VM](../WindowsVM)
 
-* Glance
+* [Glance](../Glance)
 
-* Immich
+* [Immich](../Immich)
 
-* Fresh RSS
+* [Fresh RSS](../FreshRSS)
 
-* Karakeep
+* [Karakeep](../Karakeep)
 
-* Ittools
+* [It Tools](../ItTools)
 
-* Torrent/Usenet
+* [Torrent/Usenet](../TorrentUsenet)
 
-* Jellyfin
+* [Jellyfin](../Jellyfin)
 
-* Metube
+* [Metube](../Metube)
 
-* CyberChef
+* [CyberChef](../CyberChef)
 
-* Windows Desktop Programs
+* [Desktop Programs](../DesktopPrograms)
 
-* Alternatives and Apps I am Currently Not Using or Testing
+* [Other Apps](../OtherApps)
 
-* **Roadmap**
+* [Roadmap](../RoadMap)
 
   * 🛠️ Finetune main apps
 
@@ -80,4 +80,4 @@
 
   * 🧹 Clean up and make guide more visually appealing
 
-Next: [[HardwareSelections]]
+Next: [Hardware](../Hardware)

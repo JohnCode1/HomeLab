@@ -55,4 +55,4 @@ Here are a few ways to contribute:
 * ➡️ Support the references I've included.
 * ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects.
 ---
-**Next Page:** [Hardware](./Guide/Hardware)
+**Next Page:** [Hardware](./Guide/Hardware) **Layout:** [Layout.md](../Layout)

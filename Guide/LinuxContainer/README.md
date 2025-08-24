@@ -73,7 +73,7 @@
 
    3. Add the following lines to enable hardware transcoding:
 
-      ```
+      ```bash
       # Intel Quicksync
       dev0: /dev/dri/card0,gid=44
       dev1: /dev/dri/renderD128,gid=104
@@ -82,7 +82,7 @@
 
 28. Open the container's shell and run these commands to update the system and add a new user. **Note:** You will need to replace `<name>` with the new username and `<mount-point>` with your mount path.
 
-    ```
+    ```bash
     # Update and upgrade all packages
     sudo apt update && sudo apt upgrade -y
 
@@ -100,9 +100,12 @@
 
     # Remove the 'lost+found' directory from the mount point
     sudo rmdir /<mount-point>/lost+found
-
+    # Get user Id number
+   
+    id
+   
     # Change the ownership of the mounted directory to the new user
-    sudo chown -R <user>:<user> /<mount-point>/
+    sudo chown -R <useidr>:<userid> /<mount-point>/
 
     # Repeat the last two commands for all additional mounts
     ```

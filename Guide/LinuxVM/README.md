@@ -88,4 +88,4 @@
    dev1: /dev/dri/renderD128,gid=104
    ```
 
-Next: \[\[Samba SetUp]] Layout: \[\[Layout.md]]
+Next: [Samba](../Samba) Layout: [Layout](../Layout)

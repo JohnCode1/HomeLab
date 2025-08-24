@@ -1,44 +1,83 @@
-# Structure of this guide and how to use
-- - -
-* This guide will have a link at the end of each page to the next page intended if completlely following in order.
-* It is ok to follow out of order and pick and choose what you want but forewaring you might have to tweak somethings based off where you start.
-    * example if you do not use the fileset up I have then you will have to tweak your set up.
-* After the end of each page of next I will also include a link to get back to this page to navigate around easily.
-* After the links I will post all additionally tweaks I have used in the past that I am currently not using and all terminal commands back to back without instructions to easily be able to find the command you need if already understanding what you are doing.
-    * Example of this you follow the guide later make a mistake and have to restart your server from scratch, you can go there and easily copy and paste commands as needed without having to constantly scroll around.
-Next Page Hardware Selection
-# List of all pages
-- - -
-* [[About Project]]
-* [[HardwareSelections]]
-* [[UsefulInfo.md]]
-* [[ProxmoxSetUp]] 
-* [[Linux Container]]
-* [[Linux VM]]
-* [[Samba SetUp]]
-* [[Backup]]
+# 📚 Structure of this Guide and How to Use It
+
+* ➡️ This guide provides links at the end of each page to lead you to the next page, allowing you to follow the sections in order.
+
+* 🔄 It is also perfectly fine to follow this guide **out of order** and choose what you want to implement. However, be aware that you may need to make some tweaks depending on where you start.
+
+  * > **Example:** If you do not use the file setup that I have, you will have to adjust your own setup accordingly.
+
+* 🧭 At the end of each page, after the link to the next section, I will include a link to get back to this page for easy navigation.
+
+* ⚙️ After the navigational links, I will list all the additional tweaks and terminal commands I have used in the past but are not currently in use. This allows you to easily find and copy the commands you need without having to constantly scroll.
+
+  * > **Example:** If you follow the guide and later make a mistake, forcing you to restart your server from scratch, you can quickly find the commands you need in this section.
+
+### Next Page: Hardware Selection
+
+# 📖 List of All Pages
+
+* \[\[About Project]]
+
+* \[\[HardwareSelections]]
+
+* \[\[UsefulInfo.md]]
+
+* \[\[ProxmoxSetUp]]
+
+* \[\[Linux Container]]
+
+* \[\[Linux VM]]
+
+* \[\[Samba SetUp]]
+
+* \[\[Backup]]
+
 * Docker
+
 * Nginx Proxy Manager
+
 * Windows VM
+
 * Glance
+
 * Immich
+
 * Fresh RSS
+
 * Karakeep
+
 * Ittools
+
 * Torrent/Usenet
+
 * Jellyfin
+
 * Metube
+
 * CyberChef
+
 * Windows Desktop Programs
-* alternatives and apps I am currently not using or testing
-* Roadmap
-    * Finetune main apps
-    * add webui
-    * add ollama
-    * add linux desktop
-    * add support for https
-    * add network monitoring apps
-    * add alternative apps and apps i dont use ex. homelab
-    * add guide for pfsense setup
-    * clean up and make guide more visually apealing
-Next: 
+
+* Alternatives and Apps I am Currently Not Using or Testing
+
+* **Roadmap**
+
+  * 🛠️ Finetune main apps
+
+  * 🌐 Add webui
+
+  * 🤖 Add ollama
+
+  * 💻 Add linux desktop
+
+  * 🔒 Add support for HTTPS
+
+  * 📈 Add network monitoring apps
+
+  * 🔄 Add alternative apps and apps I don't use (e.g., Homelab)
+
+  * 🛡️ Add guide for pfSense setup
+
+  * 🧹 Clean up and make guide more visually appealing
+
+Next: [[HardwareSelections]]

@@ -1,12 +1,12 @@
 # Welcome!
 
-![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)
-
-[![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/johnep)
-
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord-server-invite-link)
-
-> ⚠️**Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
+<div align="center">
+  [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html)
+  &nbsp;
+  [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/johnep)
+  &nbsp;
+  [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord-server-invite-link)
+</div>
 
 ---
 
@@ -22,6 +22,8 @@
 ## 🌟 About This Project
 
 This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab.
+
+> ⚠️ **Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
 
 ---
 
@@ -60,5 +62,4 @@ Here are a few ways to contribute:
 * ➡️ Support the references I've included.
 * ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects.
 ---
-
 **Next Page:** [Link to next page here]

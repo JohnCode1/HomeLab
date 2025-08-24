@@ -116,4 +116,4 @@
 
 * **Use a Password Manager:** This is a crucial step for securing your homelab and all your online accounts. A password manager helps you create and store unique, strong passwords for every service, so a single breach doesn't compromise all your accounts.
 
-Next: [[ProxmoxSetUp]] Layout: [[Layout.md]]
+Next: [Layout](../Layout)

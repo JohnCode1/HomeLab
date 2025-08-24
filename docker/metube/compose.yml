@@ -1,0 +1,12 @@
+services:
+  metube:
+    image: ghcr.io/alexta69/metube
+    container_name: metube
+    restart: unless-stopped
+    ports:
+      - "8083:8081"
+    volumes:
+      - /<path/to/downloads>:/data/youtube
+    environment:
+      DEFAULT_THEME: dark
+      DOWNLOAD_DIR: /data/youtube

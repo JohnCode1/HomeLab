@@ -221,4 +221,4 @@ For this guide, you will need:
 
 4. Copy the join information from the first machine and paste it into the second.
 
-Next: \[\[Linux Container]] Layout: \[\[Layout.md]]
+Next: [Linux Container](../LinuxContainer) Layout: [Layout](../Layout)

@@ -141,13 +141,14 @@ For this guide, you will need:
 
 * The process is different for each device. Below are instructions for Intel integrated graphics and NVIDIA GPUs. Please refer to the Proxmox documentation for any other devices.
 
-##### For Intel Integrated Graphics
+##### For Intel/amd IOMU
 
 1. In the shell of your Proxmox host, run `nano /etc/default/grub`.
 
 2. Add the following line under the `GRUB_CMDLINE_LINUX=""` line to enable Intel IOMMU.
 
    ```
+   #Change intel -> amd for amd
    GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on"
    ```
 

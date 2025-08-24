@@ -38,6 +38,13 @@
 
 13. On the "Confirm" tab, review your settings, and then click **`Finish`**.
 
+## Enabling Hardware Transcoding
+
+* This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
+
+ * Navigate to your Proxmox host -> Hardware -> Add PCIE device -> Raw Device-> select device (If using a cpu it most likely wil be <cpu name> Graphics -> check all functions -> ADD.
+
+
 14. Once the VM is created, select it in the left-hand pane and click **`Start`** in the top-right corner.
 
 15. In the console, select **`Install`** and press enter.
@@ -72,20 +79,5 @@
 
 30. Run `sudo apt update && sudo apt upgrade -y` to update the VM.
 
-## Enabling Hardware Transcoding
-
-* This process is for Intel and NVIDIA GPUs. It allows the VM to use your GPU for tasks like video encoding, which can significantly improve performance for apps like Jellyfin.
-
-1. Navigate to your Proxmox host -> **`Shell`**.
-
-2. Run `nano /etc/pve/lxc/<container id>.conf`.
-
-3. Add the following lines to enable hardware transcoding:
-
-   ```
-   # Intel Quicksync
-   dev0: /dev/dri/card0,gid=44
-   dev1: /dev/dri/renderD128,gid=104
-   ```
 
 Next: [Samba](../Samba) Layout: [Layout](../Layout)

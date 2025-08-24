@@ -26,4 +26,4 @@
 * Anki
 * Windows install yaml generator - https://schneegans.de/windows/unattend-generator/
 Next: [OtherApps](../OtherApps)
-Layout: [Layout](../layout)
+Layout: [Layout](../Layout)

@@ -10,10 +10,10 @@
 
 1. Navigate to the VM or container you designated for media storage.
 
-2. Run the following command to install Samba:
+2. Run the following command to install Samba and then enter your password:
 
    ```
-   sudo apt install samba
+   sudo apt install samba -y
    ```
 
 3. Edit the Samba configuration file:
@@ -22,7 +22,7 @@
    sudo nano /etc/samba/smb.conf
    ```
 
-4. Insert the following variables and adjust them for each path you need. This example uses paths for media, docker, and a nextcloud setup.
+4. Insert the following variables and adjust them for each path you need. This example uses paths for media, docker, and a nextcloud setup, but repeat for each path you have.
 
    ```
    [global]
@@ -76,7 +76,7 @@
 6. Create a Samba password for your user:
 
    ```
-   sudo smbpasswd -a [username]
+   sudo smbpasswd -a <username>
    ```
 
 7. Set the Samba services to automatically start on reboot:
@@ -126,9 +126,9 @@
 12. Add the following lines to the file, replacing the placeholders with your information.
 
     ```
-    //<ip of media server>/<path1> /data cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
-    //<ip of media server>/<path2> /docker cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
-    //<ip of media server>/<path3 this one is specific for next cloud> /nextcloud cifs rw,mfsymlinks,seal,credentials=/home/<username>/.smbcredentials,uid=33,gid=0,file_mode=0770,dir_mode=0770 0 0
+    //<ip of media server>/<path1> /<path1 cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
+    //<ip of media server>/<path2> /<path2> cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
+    //<ip of media server>/<path3 this one is specific for next cloud> /<path3> cifs rw,mfsymlinks,seal,credentials=/home/<username>/.smbcredentials,uid=33,gid=0,file_mode=0770,dir_mode=0770 0 0
     ```
 
 13. Create a `.smbcredentials` file to store your Samba login information:
@@ -146,9 +146,12 @@
 
 15. Press `Ctrl + O` to save, then `Enter` and `Ctrl + X` to exit.
 
-16. Reload the system daemon and mount the drives:
+16. Reload the system daemon, create paths, and mount the drives:
 
     ```
+    sudo mkdir <path1>
+    sudo mkdir <path2>
+    sudo mkdir <path3>
     sudo systemctl daemon-reload
     sudo mount -a
     ```

@@ -79,5 +79,7 @@
 
 30. Run `sudo apt update && sudo apt upgrade -y` to update the VM.
 
+31. Run `sudo reboot` 
+
 
 Next: [Samba](../Samba) Layout: [Layout](../Layout)

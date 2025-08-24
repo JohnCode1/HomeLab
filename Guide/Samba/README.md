@@ -171,4 +171,4 @@
 mkdir -p downloads/qbittorrent/{completed,incomplete,torrents} && mkdir -p downloads/nzbget/{completed,intermediate,nzb,queue,tmp} && mkdir -p books/ && mkdir -p movies && mkdir -p music && mkdir -p shows && mkdir -p youtube
 ```
 
-Next: \[\[Backup]] Layout: \[\[Layout.md]]
+Next: [Backup](../Backup) Layout: [Layout](../Layout)

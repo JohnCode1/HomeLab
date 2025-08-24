@@ -92,5 +92,19 @@
 
     # Repeat the last two commands for all additional mounts
     ```
+## Enabling Hardware Transcoding
 
+* This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
+
+1. Navigate to your Proxmox host -> **`Shell`**.
+
+2. Run `nano /etc/pve/lxc/<container id>.conf`.
+
+3. Add the following lines to enable hardware transcoding:
+
+   ```
+   # Intel Quicksync
+   dev0: /dev/dri/card0,gid=44
+   dev1: /dev/dri/renderD128,gid=104
+   ```
 Next: [Linux VM](../LinuxVM) Layout: [Layout](../Layout)

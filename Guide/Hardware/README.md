@@ -50,4 +50,4 @@
 
 > ⚠️ **Warning:** If you are using a laptop, it is recommended to remove the battery, as it could potentially swell from being constantly plugged in.
 
-Next: [UsefulInfo.md](../UsefulInfo) Layout: [Layout.md](../Layout)
+Next: [UsefulInfo](../UsefulInfo) Layout: [Layout](../Layout)

@@ -77,9 +77,33 @@
 
 29. After the reboot, press enter and log in with the user you created.
 
-30. Run `sudo apt update && sudo apt upgrade -y` to update the VM.
+30. Run to update the VM.```bash
+        sudo apt update && sudo apt upgrade -y
+        ```
+    
+32. Run `sudo reboot` 
 
-31. Run `sudo reboot` 
+## If using hardware transcoding
 
+32. run the following to verify devices are there that you are using. You should see something like card0, card1, rednderD128
+    ```bash
+    ll /dev/dri
+    ```
+    
+33. to enable user to use hardware transcoding run
+    ```bash
+    sudo usermod -aG render <user name>
+    ```
+    
+34. If using intel install intel-gpu-tool
+    ```bash
+    sudo apt install intel-gpu-tools
+    ```
+    
+35. verify running properly
+    ```bash
+    intel_gpu_top
+    ```
+36. `cntrl^C` to exit
 
 Next: [Samba](../Samba) Layout: [Layout](../Layout)

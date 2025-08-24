@@ -80,4 +80,4 @@
 
   * 🧹 Clean up and make guide more visually appealing
 
-Next: [Hardware](../Hardware)
+Next: [Proxmox](../Proxmox)

@@ -1,6 +1,12 @@
 # Welcome!
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Donate-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/your-username)
+![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)
+
+[![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/johnep)
+
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord-server-invite-link)
+
+> ⚠️**Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
 
 ---
 
@@ -17,8 +23,6 @@
 
 This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab.
 
-**Disclaimer:** I do not take any responsibility for any hardware damage or security breaches that may occur when using this guide.
-
 ---
 
 ## 🎯 Who This Is For (And Who It Isn't)
@@ -31,9 +35,8 @@ This guide is designed to make setting up a homelab more accessible to those who
 
 ## 🤝 References
 
-A huge thank you to all the people referenced below—this project would not be possible without them. I will not be posting a link each time a reference is used, so please refer to this list.
+A huge thank you to all the people referenced below—this project would not be possible without them. The people below have not given any advice or direct contributions, but I have gotten their advice from their videos or documentation.
 
-* Each software's original documentation
 * **[TechhutTV](https://techhut.tv/)** - This creator helped me get started with my homelab and is the original main basis for my setup.
 * **[LawrenceSystems](https://lawrencesystems.com/)** - Lawrence's videos are the initial basis for my networking software, hardware, and knowledge.
 * **[HardwareHaven](https://www.hardwarehaven.media/)** - A helpful channel about hardware.
@@ -55,8 +58,7 @@ Here are a few ways to contribute:
 * ➡️ Add to this repository with any tweaks you make. Once you get in the habit, this doesn't add much time to your workflow. I document every change I make in a pulled version of this repository, which adds only a few minutes at most to my workflow.
 * ➡️ Support the open-source apps used in this project.
 * ➡️ Support the references I've included.
-* ➡️ Buy me a coffee to allow me to dedicate more time to this and other future projects.
-
+* ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects.
 ---
 
 **Next Page:** [Link to next page here]

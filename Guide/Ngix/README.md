@@ -1,3 +1,3 @@
 nothing yet
 Next: [WindowsVM](../WindowsVM)
-Layout: [Layout](../layout)
+Layout: [Layout](../Layout)

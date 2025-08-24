@@ -93,4 +93,4 @@
     # Repeat the last two commands for all additional mounts
     ```
 
-Next: [Linux VM](../LinuxVM) Layout: [Layout.md](../Layout)
+Next: [Linux VM](../LinuxVM) Layout: [Layout](../Layout)

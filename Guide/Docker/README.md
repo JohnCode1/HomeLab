@@ -37,6 +37,12 @@ Follow these steps to install Docker on your system.
     ```bash
     newgrp docker
     ```
+7. **Remove Docker.sh File as it is no longer need.**
+   ```bash
+   #Verify the docker.sh file is in your current working directory if not navigate to where you ran sudo systemctl status docker
+   ls
+   rm docker.sh
+   ```
 
     Next: [Ngix](../Ngix)
     Layout: [Layout](../Layout)

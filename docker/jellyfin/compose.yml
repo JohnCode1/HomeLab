@@ -12,6 +12,9 @@ services:
       - TZ=America/Menominee
       # What url Jellyfin will run on this is optional
       - JELLYFIN_PublishedServerUrl=http://localhost
+    devices:
+      # For intel QuickSync
+      - /dev/dri:/dev/dri
     volumes:
       # Where Jellyfin will store the data and config files only change the path on the left
       - <where to store your config file>:/config

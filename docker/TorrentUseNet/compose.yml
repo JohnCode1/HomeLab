@@ -1,0 +1,190 @@
+networks:
+  servarrnetwork:
+    name: <enter a name of choice for subnetwork>
+    ipam:
+      config:
+        # Can change to prefered ip warning make sure you have no network conflicts
+        - subnet: 10.0.0.0/24
+
+services:
+  # Using pia change as needed to set provider of choice in accordance with gluetuns github wiki
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun 
+    networks:
+      servarrnetwork:
+        # Change as needed
+        ipv4_address: 10.0.0.2
+    ports:
+      - ${FIREWALL_VPN_INPUT_PORTS}:${FIREWALL_VPN_INPUT_PORTS} 
+       # Qbittorrent web interface
+      - 8080:8080
+      #  Qbittorrent
+      - 6881:6881 
+      # Nzbget
+      - 6789:6789 
+      # Prowlarr
+      - 9696:9696 
+    volumes:
+      - ./gluetun:/gluetun
+    env_file:
+      - .env
+    healthcheck:
+      test: ping -c 1 www.google.com || exit 1
+      interval: 20s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+    
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:5.1.2
+    container_name: qbittorrent
+    restart: unless-stopped
+    labels:
+      - deunhealth.restart.on.unhealthy=true
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - WEBUI_PORT=8080 
+      - TORRENTING_PORT=${FIREWALL_VPN_INPUT_PORTS} 
+    volumes:
+      - ./qbittorrent:/config
+      - /data:/data
+    depends_on:
+      gluetun:
+        condition: service_healthy
+        restart: true
+    network_mode: service:gluetun
+    healthcheck:
+      test: ping -c 1 www.google.com || exit 1
+      interval: 60s
+      retries: 3
+      start_period: 20s
+      timeout: 10s
+
+  deunhealth:
+    image: qmcgaw/deunhealth
+    container_name: deunhealth
+    network_mode: "none"
+    environment:
+      - LOG_LEVEL=info
+      - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
+      - TZ=${TZ}
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  nzbget:
+    image: lscr.io/linuxserver/nzbget:version-v25.2
+    container_name: nzbget
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nzbget:/config
+      - /data:/data
+    depends_on:
+      gluetun:
+        condition: service_healthy
+        restart: true
+    restart: unless-stopped
+    network_mode: service:gluetun
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:2.0.5
+    container_name: prowlarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./prowlarr:/config
+    restart: unless-stopped
+    depends_on:
+      gluetun:
+        condition: service_healthy
+        restart: true
+    network_mode: service:gluetun
+      sonarr:
+    image: lscr.io/linuxserver/sonarr:4.0.15
+    container_name: sonarr
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./sonarr:/config
+      - /data:/data
+    ports:
+      - 8989:8989
+    networks:
+      <name of network>:
+        # change if needed
+        ipv4_address: 10.0.0.3
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:5.27.5-nightly
+    container_name: radarr
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./radarr:/config
+      - /data:/data
+    ports:
+      - 7878:7878
+    networks:
+      <name of network>:
+        ipv4_address: 10.0.0.4
+        
+  lidarr:
+    container_name: lidarr
+    image: lscr.io/linuxserver/lidarr:2.14.1-nightly
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./lidarr:/config
+      - /data:/data
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 8686:8686
+    networks:
+      <enter network name>:
+        # Change if needed
+        ipv4_address: 10.0.0.5
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:version-v1.5.2
+    container_name: bazarr
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./bazarr:/config
+      - /data:/data
+    ports:
+      - 6767:6767
+    networks:
+      <enter network name>:
+        # Change as needed
+        ipv4_address: 10.0.0.6
+  

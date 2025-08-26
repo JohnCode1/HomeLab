@@ -42,5 +42,8 @@
     sudo intel_gpu_top
     #Enter Password
     ```
+12. go to jellyseer via ip and port 5055
+13. log in and sync libraries -> scan and add radar and sonarr with ip addresses and ports and api keys -> quality profiles and root folder for data and change minimum availability -> released
+
 Next: [Metube](../Metube)
 Layout: [Layout](../Layout)

@@ -1,40 +1,145 @@
+\# This is a Docker Compose file. It defines and runs multi-container Docker applications.
+
+\# 'services' defines the containers that make up your application.
+
 services:
-  proxy:
-    image: 'jc21/nginx-proxy-manager:latest'
-    container_name: nginx-proxy-manager
-    restart: unless-stopped
-    network_mode: host
-    volumes:
-      - data:/data
-      - letsencrypt:/etc/letsencrypt
-    healthcheck:
-      test: ["CMD", "/usr/bin/check-health"]
-      interval: 10s
-      timeout: 3s
 
-  ddns:
-    image: favonia/cloudflare-ddns:latest
-    container_name: cloudflare-ddns
-    # network_mode: host # This bypasses network isolation and makes IPv6 easier (optional; see below)
-    restart: unless-stopped
-    user: "1000:1000" # Run the updater with specific user and group IDs (in that order).
-    read_only: true # Make the container filesystem read-only (optional but recommended)
-    cap_drop: [all] # Drop all Linux capabilities (optional but recommended)
-    security_opt: [no-new-privileges:true] # Another protection to restrict superuser privileges (optional but recommended)
-    environment:
-      - CLOUDFLARE_API_TOKEN=<API Token>
-      - DOMAINS=<domains>
-      - PROXIED=true
-      - IP6_PROVIDER=none
+  # The 'proxy' service uses the Nginx Proxy Manager image to manage web proxies.
 
-# For testing the proxy
-  helloworld:
-    image: 'karthequian/helloworld:latest'
-    container_name: helloworld
-    restart: unless-stopped
-    ports:
-      - 8888:80/tcp
+  proxy:
+
+    # Specifies the Docker image to use. 'jc21/nginx-proxy-manager' is a popular choice.
+
+    image: 'jc21/nginx-proxy-manager:latest'
+
+    # Assigns a readable name to the container.
+
+    container\_name: nginx-proxy-manager
+
+    # Instructs Docker to restart the container unless it is explicitly stopped.
+
+    restart: unless-stopped
+
+    # This mode allows the container to share the host's network stack, which is necessary for Nginx Proxy Manager to work correctly.
+
+    network\_mode: host
+
+    # 'volumes' are used for persistent storage. They map directories from your host machine to the container.
+
+    volumes:
+
+      # This volume stores all the core data for Nginx Proxy Manager.
+
+      - data:/data
+
+      # This volume stores the Let's Encrypt certificates for SSL/TLS.
+
+      - letsencrypt:/etc/letsencrypt
+
+    # 'healthcheck' defines a command to check if the container is healthy.
+
+    healthcheck:
+
+      test: \["CMD", "/usr/bin/check-health"]
+
+      interval: 10s
+
+      timeout: 3s
+
+
+
+  # The 'ddns' service uses a Dynamic DNS (DDNS) updater for Cloudflare.
+
+  ddns:
+
+    # Specifies the image for the DDNS updater.
+
+    image: favonia/cloudflare-ddns:latest
+
+    # Assigns a name to the container.
+
+    container\_name: cloudflare-ddns
+
+    # This line is commented out but shows an alternative network mode.
+
+    # network\_mode: host # This bypasses network isolation and makes IPv6 easier (optional; see below)
+
+    # Instructs Docker to restart the container unless explicitly stopped.
+
+    restart: unless-stopped
+
+    # Specifies the user and group IDs to run the updater, which can be useful for permissions.
+
+    user: "1000:1000" # Run the updater with specific user and group IDs (in that order).
+
+    # Makes the container's file system read-only for improved security.
+
+    read\_only: true 
+
+    # Drops all Linux capabilities from the container, further restricting its actions.
+
+    cap\_drop: \[all] 
+
+    # Another security measure to prevent the container from gaining new privileges.
+
+    security\_opt: \[no-new-privileges:true] 
+
+    # 'environment' variables are used to pass configuration settings to the container.
+
+    environment:
+
+      # Cloudflare API token for authentication.
+
+      - CLOUDFLARE\_API\_TOKEN=\<API Token>
+
+      # A list of domains to update.
+
+      - DOMAINS=\<domains>
+
+      # If 'true', Cloudflare's proxy feature is enabled.
+
+      - PROXIED=true
+
+      # Disables IPv6 provider, preventing IPv6 updates.
+
+      - IP6\_PROVIDER=none
+
+
+
+\# This is a simple 'helloworld' service used for testing the proxy setup.
+
+  helloworld:
+
+    # Specifies the image for the test service.
+
+    image: 'karthequian/helloworld:latest'
+
+    # Assigns a name to the container.
+
+    container\_name: helloworld
+
+    # Instructs Docker to restart the container unless explicitly stopped.
+
+    restart: unless-stopped
+
+    # 'ports' maps a port on your host machine to a port inside the container.
+
+    ports:
+
+      # Maps port 8888 on the host to port 80 in the container.
+
+      - 8888:80/tcp
+
+
+
+\# 'volumes' defines the storage volumes that are used by the services.
 
 volumes:
-  data:
-  letsencrypt:
+
+  # The 'data' volume is for Nginx Proxy Manager's main data.
+
+  data:
+
+  # The 'letsencrypt' volume is for storing SSL certificates.
+
+  letsencrypt:

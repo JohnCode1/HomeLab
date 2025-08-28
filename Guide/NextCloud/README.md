@@ -1,0 +1,71 @@
+### Nextcloud Setup Guide
+
+This section provides a step-by-step guide for setting up Nextcloud on a Docker-enabled virtual machine.
+
+1. **Create a Directory:** Make a new directory to store all your Nextcloud files.
+
+   ```
+   mkdir nextcloud
+   ```
+
+2. **Set Permissions:** Give your user the correct permissions for the new directory.
+
+   ```
+   sudo chown -R 1000:1000 /nextcloud/
+   ```
+
+3. **Pull the Docker File:** Download the necessary Docker Compose file.
+
+   ```
+   wget <your-docker-compose-file-url>
+   ```
+
+4. **Start the Container:** Run the Docker Compose file to start the Nextcloud container in the background.
+
+   ```
+   docker compose up -d
+   ```
+
+5. **Check Logs:** Monitor the container logs to ensure it's running correctly.
+
+   ```
+   docker logs nextcloud
+   ```
+
+6. **Access Nextcloud:** Go to your web browser and navigate to the IP address of your VM with the port.
+
+   ```
+   http://<your-vm-ip>:8080
+   ```
+
+7. **Set Up Nginx Proxy:** Configure Nginx to proxy Nextcloud for a secure connection. Add a new Proxy Host with the following settings:
+
+   * **Name:** `nextcloud.yourdomain.com` (or your preferred subdomain)
+
+   * **Scheme:** `https`
+
+   * **Block Common Exploits:** Enable this option.
+
+   * **Websockets Support:** Enable this option.
+
+   * **SSL:** Check the top two boxes to enforce SSL.
+
+   * **Custom Locations:** Add a new custom location with the following pasted in the body:
+
+     ```
+     client_body_buffer_size 512k;
+     proxy_read_timeout 86400s;
+     client_max_body_size 0;
+     ```
+
+8. **Complete Nextcloud AIO Setup:**
+
+   * Go to the Nextcloud AIO interface and submit your domain.
+
+   * Install "Nextcloud Hub 10".
+
+   * Check "full text search" and start the download.
+
+   * Copy the default login credentials and log in to Nextcloud.
+
+   * Go to "Accounts" to change your display name, password, and email.

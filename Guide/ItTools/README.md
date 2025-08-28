@@ -40,4 +40,4 @@
    * For example, `http://<your-server-ip>:8081`.
 
 Layout: [Layout](../Layout)
-Next: [Torrent/UseNet](../UseNet)
+Next: [Torrent/UseNet](../TorrentUseNet)

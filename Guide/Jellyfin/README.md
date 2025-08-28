@@ -1,49 +1,100 @@
-# Setup: this docker compose file has jellyfin and jellyseer
----
-1. Go into or make the directory you will be storing your dockerfile for jellyfin 
-*Note: For Jellyfin you need to have that docker file locally on your machine or you might run into issues
-    ```bash
-    mkdir jellyfindocker
-    cd jellyfindocker
-    
-2. Pull the dockerfile for jellyfin from my repository
-   ```bash
+# 🍿 Setting up Jellyfin and Jellyseerr
+
+## What We Will Be Doing
+
+* In this guide, we will set up **Jellyfin**, a free software media system, and **Jellyseerr**, a platform for managing requests for new media.
+
+* We will use a `docker-compose.yml` file to run both applications.
+
+## Guide
+
+### 📂 Step 1: Directory Setup
+
+1. Go into or create the directory where you will store the Docker files for Jellyfin.
+
+   ```
+   mkdir jellyfindocker
+   cd jellyfindocker
+   ```
+
+2. Pull the `docker-compose.yml` file.
+
+   ```
    wget https://raw.githubusercontent.com/JohnCode1/HomeLab/main/docker/jellyfin/compose.yml
    ```
-   
-3. Change 'JellySeers Config file path' 'Jellyfins config and data file path'
-   ```bash
+
+3. Edit the `compose.yml` file to update the paths for your configuration and data files.
+
+   * If you are not using Intel Quick Sync for hardware transcoding, you should also remove the `devices` section.
+
+   ```
    nano compose.yml
-   #If not using intel quick sync remove devices as well
-   
-4. `Cntrl^o` to save and `cntrl^x` to exit
-  
-5. Run to start up the container
-   ```bash
-   docker compose up -d
    ```
-   
-6. after the container is running run to check the logs of the container
-   ```bash
+
+4. Save the file by pressing `Ctrl + O` and exit with `Ctrl + X`.
+
+### 🚀 Step 2: Running the Containers
+
+5. Run the Docker Compose command to start the containers in the background.
+
+   ```
+   docker-compose up -d
+   ```
+
+6. After the containers are running, check the logs to ensure they started correctly.
+
+   ```
    docker logs jellyfin
-   docker logs jellyseer
+   docker logs jellyseerr
    ```
-   
-7. Navigate to your browser of choice and enter `<youripofvm/container>:8096`
-   
-8. Intial Setup: Select Language -> next ->username and password -> next -> add media library -> choose media type -> add folder -> <path to storing data> -> ok -> next -> choose language and region -> next -> check enable auto port mapping -> next -> Finish -> login
-   
-9. Check jellyfin has proper permisions by deleting some data you have WARNING make sure you have a back up of that data
 
-10. Enable Hardware transcoding: Three bars on left of screen -> Dashboard -> Playback -> Transcoding -> Hardware acceleration select the one you are using -> paste in text of QSV device below the text box -> save
+### ⚙️ Step 3: Initial Setup
 
-11. Check to make sure transcoding is working for intel: start some data
-    ```bash
-    sudo intel_gpu_top
-    #Enter Password
+7. Navigate to your browser and access Jellyfin at `http://<your-server-ip>:8096`.
+
+8. Follow the initial setup wizard:
+
+   * Select your language.
+
+   * Create a username and password.
+
+   * Add your media library by specifying the type of media and the path where your media is stored.
+
+   * Choose your language and region settings.
+
+   * Check the option to enable auto port mapping (if needed).
+
+   * Click `Finish` and log in with your new credentials.
+
+9. Verify that Jellyfin has the proper permissions to access your media by trying to delete a piece of test data. **WARNING: Make sure you have a backup of this data.**
+
+### 🖥️ Step 4: Enabling Hardware Transcoding
+
+10. If you are using Intel Quick Sync for hardware transcoding, go to the Jellyfin dashboard.
+
+    * Click the three bars on the left -> `Dashboard` -> `Playback` -> `Transcoding`.
+
+    * Select the hardware acceleration type you are using.
+
+    * Paste the device path `/dev/dri/renderD128` into the text box below.
+
+    * Save the settings.
+
+11. To check if transcoding is working, you can run the following command on your server to monitor the GPU usage while a video is playing.
+
     ```
-12. go to jellyseer via ip and port 5055
-13. log in and sync libraries -> scan and add radar and sonarr with ip addresses and ports and api keys -> quality profiles and root folder for data and change minimum availability -> released
+    sudo intel_gpu_top
+    ```
+
+### 🔄 Step 5: Configuring Jellyseerr
+
+12. Access Jellyseerr at `http://<your-server-ip>:5055`.
+
+13. Log in and sync your libraries.
+
+14. Scan and add Radarr and Sonarr by providing their IP addresses, ports, and API keys.
+
+15. Update your quality profiles and root folder settings, and change the minimum availability to `Released`.
 
 Next: [Metube](../Metube)
 Layout: [Layout](../Layout)

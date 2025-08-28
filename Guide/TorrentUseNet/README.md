@@ -1,44 +1,109 @@
-WARNING I DO NOT CONDONE PIRACY OR ILLEGAL DOWNLOADS
-# Setup
-* This docker file will contain:
-  * glueten, qbittorrent, duenhealth, nzbget, prowlarr, sonarr, radarr, lidarr, bazarr
-* this must also have its docker file locally on this server
-1. create or navigate to your dirrectory to store your docker file
-```bash
-sudo mkdir torrentusenet
-cd torrentusenet
-```
-2. Give your user permisions read and write in that directory
-3. pull my docker and .env file for the torrentusenet stack
-4. change all the <> in the stack
-5. run docker compose up -d
-6. check logs of all docker containers
-7. test glueten conectivity docker run --rm --network=container:gluetun alpine:3.18 sh -c "apk add wget && wget -qO- https://ipinfo.io"
-    docker exec -it container_name bash
-wget -qO- https://ipinfo.io
-8. go to qbit torrent via :8080 and login and get password from the docker logs
-9. change password setting -> webui ->change password -> save
-10. restart docker qbittorrent and relogin
-11. go to connections and verify correct port
-12. go to advanced network interface -> tun 0 -> save
-13. go to downloads and change directories to perfered set up for default save path, incolmplete, and .torrent files
-14. test by copying ubuntu 24.04 torrent link
-15. login to qbit on port 6789 with default username of nzbget and password of tegbzn6789
-16. go to security and change username and password -> save and relogin
-17. go to settings incoming nzbs and turn off appendcategorydir -> save
-18. go to settings -> paths and chaing main dest, and inter dir to your perfered path ->save
-19. login into prowlerr 9696 authentaction medthos login pathabd enter username and password -> save
-20. add your perfered indexers
-21. go to settings download client ->nzbget change host to your ip on glueten
-22. enter nzbget user name and password choose default category -> save
-* sonarr,lidar, bazarr, and radarr are same set ups and would recommend doing this for each app at the same time
-24. login to apps enter ip and port choose forms and create username and login
-25. go to settings -> general -> api key and copy
-26. in prowler go to settings and app your setting up and enter in api key and ip of that host
-27. for bazar after set up to radarr go to settings languages and enter the language filter save and add profile -> add language -> save -> save then go to providers and select your provider of choice
-27. after setting up apps go to movies in radarr and import existing movies from your data directory
-28.go to settings and add your download clients
-29. test by searching for a movie that you can obtain legally and download it
+# ⚠️ WARNING: I DO NOT CONDONE PIRACY OR ILLEGAL DOWNLOADS. THIS GUIDE IS FOR EDUCATIONAL PURPOSES ONLY.
+
+## 🐳 Installation and Setup Guide
+
+### 📂 Step 1: Directory Setup
+
+1. Create or navigate to your desired directory to store the Docker files.
+
+   ```
+   sudo mkdir torrentusenet
+   cd torrentusenet
+   ```
+
+2. Give your user read and write permissions for this directory.
+
+### ⚙️ Step 2: Docker Files
+
+3. Pull the `docker-compose.yml` and `.env` files for the torrent/usenet stack.
+
+4. Change all the placeholder values `<>` in both the `docker-compose.yml` and `.env` files.
+
+### 🚀 Step 3: Running the Containers
+
+5. Run the Docker Compose command to start all services in the background.
+
+   ```
+   docker-compose up -d
+   ```
+
+6. Check the logs of all Docker containers to ensure they started correctly.
+
+   ```
+   docker-compose logs
+   ```
+
+### 🔐 Step 4: VPN and IP Verification (Gluetun)
+
+7. Verify your VPN connection by running a command to check your public IP.
+
+   ```
+   docker run --rm --network=container:gluetun alpine:3.18 sh -c "apk add wget && wget -qO- https://ipinfo.io"
+   ```
+
+   Alternatively, you can access the Gluetun container's shell and run the command from there.
+
+   ```
+   docker exec -it gluetun bash
+   wget -qO- https://ipinfo.io
+   ```
+
+### 🔧 Step 5: Configuring qBittorrent
+
+8. Access qBittorrent at `http://<your-server-ip>:8080`.
+
+9. Get the default login password from the Docker logs of the qBittorrent container.
+
+10. Go to `Settings` -> `Web UI` and change the default password.
+
+11. Restart the qBittorrent container and log in with your new credentials.
+
+12. Go to `Settings` -> `Connections` and verify the correct port is being used.
+
+13. In `Settings` -> `Advanced`, change the network interface to `tun0` and save.
+
+14. In `Settings` -> `Downloads`, change the default save path, incomplete path, and `.torrent` file path.
+
+15. Test by copying a legally obtainable torrent link, like a Linux distribution ISO.
+
+### ⚙️ Step 6: Configuring NZBget
+
+16. Log in to NZBget at `http://<your-server-ip>:6789` with the default username `nzbget` and password `tegbzn6789`.
+
+17. Go to `Settings` and change your username and password, then save and relogin.
+
+18. Go to `Settings` -> `Incoming NZBs` and turn off `AppendCategoryDir`.
+
+19. In `Settings` -> `Paths`, change the main destination and intermediate directory to your preferred paths.
+
+### 🔄 Step 7: Configuring Prowlarr
+
+20. Log in to Prowlarr at `http://<your-server-ip>:9696`.
+
+21. Select `Forms` authentication, create a username and password, and save.
+
+22. Add your preferred indexers.
+
+23. In `Settings` -> `Download Clients`, add NZBget. Change the host to your Gluetun container's IP (`10.0.0.2` by default), enter your NZBget username and password, and choose a default category.
+
+### 🎬 Step 8: Configuring the Arr Apps (Sonarr, Radarr, Lidarr, Bazarr)
+
+* The setup for these applications is similar and can be done at the same time.
+
+24. Log in to each app using its respective port. For example, Radarr is on port `7878`, and Sonarr is on `8989`.
+
+25. Create a username and password.
+
+26. Go to `Settings` -> `General` and copy the API key.
+
+27. In Prowlarr, go to the `Settings` for the app you are setting up and enter the API key and the IP address of that host.
+
+28. After setting up all the apps, go to `Movies` in Radarr or `Series` in Sonarr and import your existing media from your data directory.
+
+29. In `Settings`, add your download clients.
+
+30. Test the setup by searching for a movie or show you can obtain legally and downloading it.
+
 
 Next: [Jellyfin](../Jellyfin)
 Layout: [Layout](../Layout)

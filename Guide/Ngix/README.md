@@ -1,5 +1,5 @@
 1. go to cloudflair or provider of choice and obtain a domain name WARNING make sure the tld ex .us or .net allows Masking of your information to prevent spam to your info used to buy this domain
-2. go to dns and add type A record with name @ and enter your domain name and add a cname certificate with name * and ip running your apps if running streaming apps like jellyfin disable proxy *WARNING if you do not disable proxy for streaming apps you will viloate cloudflares terms of service
+2. go to dns and add type A record with name @ and enter your ip and add a cname certificate with name * and enter your domain name and turn off proxy since running local if running streaming apps like jellyfin disable proxy *WARNING if you do not disable proxy for streaming apps you will viloate cloudflares terms of service
 3. go to your profile and create api token and click use template for edit zone dns include all zones -> continue to summary and copy api token
 4. pull the docker file and edit api key and domain names
 5. run docker file and check logs

@@ -3,12 +3,11 @@
 
 ---
 
-## 📖 Table of Contents
 
-* [About This Project](#about-this-project)
-* [Who This Is For (And Who It Isn't)](#who-this-is-for-and-who-it-isnt)
-* [References](#references)
-* [Contributing](#contributing)
+## 🌟 Current Status of project
+
+The current state of this guide is a compilation of my notes when using the below resources to make my home server and I used AI to make it more readable. Due to this the guide may have some issues, but the ultimate goal is to make it very easy to understand and please bear with me until I get it to that state.
+
 
 ---
 

@@ -86,6 +86,6 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
 
    * Your new backup job should appear in the dropdown. Select it and click `Backup` to run an immediate test.
   
-  Next: [Proxmox](../Proxmox)
-  Layout: [Proxmox](../Layout)
+  Next: [Docker](../Docker)
+  Layout: [Layout](../Layout)
 

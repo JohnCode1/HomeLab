@@ -1,36 +1,42 @@
-🛠️ Installing and Setting Up IT Tools
-What We Will Be Doing
+# 🛠️ Installing and Setting Up IT Tools
 
-    In this guide, we will set up IT Tools, a collection of handy offline tools for developers.
+## What We Will Be Doing
 
-    We will use a docker-compose.yml file to run the application as a single container.
+* In this guide, we will set up **IT Tools**, a collection of handy offline tools for developers.
 
-Guide
+* We will use a `docker-compose.yml` file to run the application as a single container.
 
-    Create a project directory.
+## Guide
 
-        First, create a new folder for your IT Tools project. You can name it whatever you like, for example, it-tools.
+1. **Create a project directory.**
 
-    mkdir it-tools
-    cd it-tools
+   * First, create a new folder for your IT Tools project. You can name it whatever you like, for example, `it-tools`.
 
-    Create the docker-compose.yml file.
+   ```
+   mkdir it-tools
+   cd it-tools
+   ```
 
-        Inside the it-tools directory, create a new file named docker-compose.yml.
+2. **Create the `docker-compose.yml` file.**
 
-        Copy and paste the contents from the compose.yml file you provided into this file.
+   * Inside the `it-tools` directory, create a new file named `docker-compose.yml`.
 
-        This file defines the ittools service, which pulls the necessary Docker image and maps a port for access.
+   * Copy and paste the contents from the `compose.yml` file you provided into this file.
 
-    Start the container.
+   * This file defines the `ittools` service, which pulls the necessary Docker image and maps a port for access.
 
-        With the docker-compose.yml file in place, you can now start the IT Tools container. The -d flag runs the container in the background.
+3. **Start the container.**
 
-    docker-compose up -d
+   * With the `docker-compose.yml` file in place, you can now start the IT Tools container. The `-d` flag runs the container in the background.
 
-    Access the application.
+   ```
+   docker-compose up -d
+   ```
 
-        Once the container is running, you can access the IT Tools web interface by opening a web browser and navigating to your server's IP address on port 8081.
+4. **Access the application.**
 
-        For example, http://<your-server-ip>:8081.Next: [Torrent/UseNet](../TorrentUseNet)
+   * Once the container is running, you can access the IT Tools web interface by opening a web browser and navigating to your server's IP address on port `8081`.
+
+   * For example, `http://<your-server-ip>:8081`.
+
 Layout: [Layout](../Layout)

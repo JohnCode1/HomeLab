@@ -1,41 +1,50 @@
-🎵 Setting up Metube
-What We Will Be Doing
+# 🎵 Setting up Metube
 
-    In this guide, we will set up Metube, a web GUI for yt-dlp that allows you to download videos and audio from various websites.
+## What We Will Be Doing
 
-    We will use a docker-compose.yml file to run the application as a single container.
+* In this guide, we will set up **Metube**, a web GUI for `yt-dlp` that allows you to download videos and audio from various websites.
 
-Guide
-📂 Step 1: Directory Setup
+* We will use a `docker-compose.yml` file to run the application as a single container.
 
-    Create a project directory.
+## Guide
 
-        First, create a new folder for your Metube project. You can name it whatever you like, for example, metube-docker.
+### 📂 Step 1: Directory Setup
 
-    mkdir metube-docker
-    cd metube-docker
+1. **Create a project directory.**
 
-    Create the docker-compose.yml file.
+   * First, create a new folder for your Metube project. You can name it whatever you like, for example, `metube-docker`.
 
-        Inside the metube-docker directory, create a new file named docker-compose.yml.
+   ```
+   mkdir metube-docker
+   cd metube-docker
+   ```
 
-        Copy and paste the contents from the compose(1).yml file you provided into this file.
+2. **Create the `docker-compose.yml` file.**
 
-        Note: You will need to change the volume path <path/to/downloads> to the actual path on your server where you want to store the downloaded videos.
+   * Inside the `metube-docker` directory, create a new file named `docker-compose.yml`.
 
-🚀 Step 2: Running the Container
+   * Copy and paste the contents from the `compose(1).yml` file you provided into this file.
 
-    Start the container.
+   * **Note:** You will need to change the volume path `<path/to/downloads>` to the actual path on your server where you want to store the downloaded videos.
 
-        With the docker-compose.yml file in place, you can now start the Metube container. The -d flag runs the container in the background.
+### 🚀 Step 2: Running the Container
 
-    docker-compose up -d
+3. **Start the container.**
 
-⚙️ Step 3: Accessing the Application
+   * With the `docker-compose.yml` file in place, you can now start the Metube container. The `-d` flag runs the container in the background.
 
-    Access the application.
+   ```
+   docker-compose up -d
+   ```
 
-        Once the container is running, you can access the Metube web interface by opening a web browser and navigating to your server's IP address on port 8083.
+### ⚙️ Step 3: Accessing the Application
 
-        For example, http://<your-server-ip>:8083.Next: [CyberChef](../Cyberchef)
+4. **Access the application.**
+
+   * Once the container is running, you can access the Metube web interface by opening a web browser and navigating to your server's IP address on port `8083`.
+
+   * For example, `http://<your-server-ip>:8083`.
+
 Layout: [Layout](../Layout)
+Next: [CyberChef](../Cyberchef)
+

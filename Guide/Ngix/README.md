@@ -38,15 +38,13 @@
 
    * Run the following command to start the containers in the background:
 
-   ```
+   ```bash
    docker compose up -d
    ```
 
 5. **Verify the containers are running.**
 
-   * Check the logs to ensure the DDNS container is updating your IP correctly:
-
-   ```
+   ```bash
    docker compose logs
    ```
 

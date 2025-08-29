@@ -52,6 +52,7 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
 ```bash
     sudo chown -R <id>:<id> /<path1>
     sudo chown -R <id>:<id> /<path2>
+    sudo chown -R <id>:<id> /<path3>
 ```
 
     Next: [Ngix](../Ngix)

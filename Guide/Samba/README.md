@@ -22,7 +22,7 @@
    sudo nano /etc/samba/smb.conf
    ```
 
-4. Insert the following variables and adjust them for each path you need. This example uses paths for media, docker, and a nextcloud setup, but repeat for each path you have.
+4. Insert the following variables and adjust them for each path you need. This example uses paths for media, and docker but repeat for each path you have.
 
    ```
    [global]
@@ -47,18 +47,6 @@
       guest ok = no
    [<name of path 2>]
       path = /<path 2>
-      force user = <user name>
-      force group = <user name>
-      create mask = 0774
-      force create mode = 0774
-      directory mask = 0775
-      force directory mode = 0775
-      browseable = yes
-      writable = yes
-      read only = no
-      guest ok = no
-   [<name of path 3>]
-      path = /<path 3>
       force user = <user name>
       force group = <user name>
       create mask = 0774
@@ -123,11 +111,12 @@
     sudo nano /etc/fstab
     ```
 
-12. Add the following lines to the file, replacing the placeholders with your information.
+12. Add the following lines to the file, replacing the placeholders with your information. For this I created two shares one for media and one for docker
 
     ```
     //<ip of media server>/<path1> /<path1 cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
     //<ip of media server>/<path2> /<path2> cifs uid=1000,gid=1000,credentials=/home/<username>/.smbcredentials,iocharset=utf8 0 0
+    #Working on creating a seperate share for next cloud when added to this guide
     //<ip of media server>/<path3 this one is specific for next cloud> /<path3> cifs rw,mfsymlinks,seal,credentials=/home/<username>/.smbcredentials,uid=33,gid=0,file_mode=0770,dir_mode=0770 0 0
     ```
 
@@ -151,7 +140,6 @@
     ```
     sudo mkdir <path1>
     sudo mkdir <path2>
-    sudo mkdir <path3>
     sudo systemctl daemon-reload
     sudo mount -a
     ```

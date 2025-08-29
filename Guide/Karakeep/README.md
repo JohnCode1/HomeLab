@@ -1,16 +1,8 @@
 # 🗂️ Installing and Setting Up Karakeep
 
-## What We Will Be Doing
-
-* In this guide, we will set up **Karakeep**, a self-hosted bookmark and snippet manager.
-
-* We will use a `docker-compose.yml` file to run the web application, a headless Chrome instance for rendering web pages, and MeiliSearch for fast search capabilities.
-
 ## Guide
 
 1. **Create a project directory.**
-
-   * First, create a new folder for your Karakeep project. You can name it whatever you like, for example, `karakeep`.
 
    ```
    mkdir karakeep
@@ -19,26 +11,18 @@
 
 2. **Create the `docker-compose.yml` file.**
 
-   * Inside the `karakeep` directory, create a new file named `docker-compose.yml`.
-
-   * Copy and paste the contents from the `compose.yml` file you provided into this file.
-
-   * This file defines all the necessary services for Karakeep: the `web` application, `chrome` for page rendering, and `meilisearch` for the search database.
+   * `wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/compose.yml`
 
 3. **Create the `.env` file.**
 
-   * Next, create a new file in the same directory and name it `.env`.
-
-   * Copy and paste the contents from the `.env` file you provided into this file.
+   * `wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/.env`
 
    * **Important:** You must update the `<Secret>` and `<master_key>` with your own strong, unique passwords.
 
 4. **Start the containers.**
 
-   * With both files in place, you can now start the Karakeep containers. The `-d` flag runs the containers in the background.
-
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 5. **Access the application.**

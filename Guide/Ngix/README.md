@@ -130,6 +130,15 @@
       * Enable Host header validation and input your server domain
         * EX: qbit.example.com
       * Save
+* For NZBGET:
+  * got advanced in ngnix and paste the following:
+    ```bash
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Real-IP $remote_addr;
+    ```
 Next: [Windows VM](../WindowsVM)
 Layout: [Layout](../Proxmox)
 

@@ -1,6 +1,6 @@
 networks:
-  servarrnetwork:
-    name: <enter a name of choice for subnetwork>
+  servernetwork:
+    name: servernetwork
     ipam:
       config:
         # Can change to prefered ip warning make sure you have no network conflicts
@@ -16,7 +16,7 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun 
     networks:
-      servarrnetwork:
+      servernetwork:
         # Change as needed
         ipv4_address: 10.0.0.2
     ports:
@@ -128,7 +128,7 @@ services:
     ports:
       - 8989:8989
     networks:
-      <name of network>:
+      servernetwork:
         # change if needed
         ipv4_address: 10.0.0.3
 
@@ -147,7 +147,7 @@ services:
     ports:
       - 7878:7878
     networks:
-      <name of network>:
+      servernetwork:
         ipv4_address: 10.0.0.4
         
   lidarr:
@@ -165,7 +165,7 @@ services:
     ports:
       - 8686:8686
     networks:
-      <enter network name>:
+      servernetwork:
         # Change if needed
         ipv4_address: 10.0.0.5
 
@@ -184,7 +184,7 @@ services:
     ports:
       - 6767:6767
     networks:
-      <enter network name>:
+      servernetwork:
         # Change as needed
         ipv4_address: 10.0.0.6
   

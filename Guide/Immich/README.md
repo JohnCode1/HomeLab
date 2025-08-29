@@ -25,7 +25,7 @@
      wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/immich/.env
      ```
 
-3. **create a db password and input it into `.env`: `cntrl^shift^c to copy` `cntrl^o` to save `cntrl^x` to exit**
+3. **change your ip and create a db password and input it into `.env`: `cntrl^shift^c to copy` `cntrl^o` to save `cntrl^x` to exit**
 
    ```
    openssl rand -hex 32

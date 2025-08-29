@@ -222,4 +222,10 @@ For this guide, you will need:
 
 4. Copy the join information from the first machine and paste it into the second.
 
+#### Check actual amount of data vs. data allocated:
+* Run to see how much memory you have allocated vs how much is available via zfs:
+  ```bash
+  zpool list 
+  zfs list
+  ```
 Next: [Linux Container](../LinuxContainer) Layout: [Layout](../Layout)

@@ -94,9 +94,11 @@
     * **⚠️ WARNING:** If you plan to open Jellyfin to the worldwide web, you must follow the official Jellyfin documentation for Nginx setup, as it requires custom settings.
 
     * You may also need to enable WebSocket support in the advanced settings of your proxy host.
-Next: [Windows VM](../WindowsVM)
-Layout: [Layout](../Proxmox)
+      
 11. **Using subdomains.**
 
     * You can use subdomains with the custom location feature in NGIX.
+   
+Next: [Windows VM](../WindowsVM)
+Layout: [Layout](../Proxmox)
 

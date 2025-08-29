@@ -50,60 +50,6 @@ services:
 
   # The 'ddns' service uses a Dynamic DNS (DDNS) updater for Cloudflare.
 
-  ddns:
-
-    # Specifies the image for the DDNS updater.
-
-    image: favonia/cloudflare-ddns:latest
-
-    # Assigns a name to the container.
-
-    container\_name: cloudflare-ddns
-
-    # This line is commented out but shows an alternative network mode.
-
-    # network\_mode: host # This bypasses network isolation and makes IPv6 easier (optional; see below)
-
-    # Instructs Docker to restart the container unless explicitly stopped.
-
-    restart: unless-stopped
-
-    # Specifies the user and group IDs to run the updater, which can be useful for permissions.
-
-    user: "1000:1000" # Run the updater with specific user and group IDs (in that order).
-
-    # Makes the container's file system read-only for improved security.
-
-    read\_only: true 
-
-    # Drops all Linux capabilities from the container, further restricting its actions.
-
-    cap\_drop: \[all] 
-
-    # Another security measure to prevent the container from gaining new privileges.
-
-    security\_opt: \[no-new-privileges:true] 
-
-    # 'environment' variables are used to pass configuration settings to the container.
-
-    environment:
-
-      # Cloudflare API token for authentication.
-
-      - CLOUDFLARE\_API\_TOKEN=\<API Token>
-
-      # A list of domains to update.
-
-      - DOMAINS=\<domains>
-
-      # If 'true', Cloudflare's proxy feature is enabled.
-
-      - PROXIED=true
-
-      # Disables IPv6 provider, preventing IPv6 updates.
-
-      - IP6\_PROVIDER=none
-
 
 
 \# This is a simple 'helloworld' service used for testing the proxy setup.

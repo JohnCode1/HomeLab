@@ -28,13 +28,13 @@
 5. Run the Docker Compose command to start all services in the background.
 
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 6. Check the logs of all Docker containers to ensure they started correctly.
 
    ```
-   docker-compose logs
+   docker compose logs
    ```
 
 ### 🔐 Step 4: VPN and IP Verification (Gluetun)

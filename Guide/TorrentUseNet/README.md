@@ -18,7 +18,7 @@
 3. Pull the `docker-compose.yml` and `.env` files for the torrent/usenet stack.
    ```bash
    wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/TorrentUseNet/.env
-   wget https://github.com/JohnCode1/HomeLab/blob/main/docker/TorrentUseNet/compose.yml
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/TorrentUseNet/compose.yml
    ```
 
 5. Change all the placeholder values `<>` in both the `docker-compose.yml` and `.env` files.

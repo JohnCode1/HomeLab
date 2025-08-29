@@ -56,9 +56,9 @@
 
 5. **Access the application.**
 
-   * Once the container is running, you can access the Glance web interface by opening a web browser and navigating to your server's IP address on port `8000`.
+   * Once the container is running, you can access the Glance web interface by opening a web browser and navigating to your server's IP address on port `8082`.
 
-   * For example, `http://<your-server-ip>:8000`.
+   * For example, `http://<your-server-ip>:8082`.
 
    * You can now upload files to the `data` folder inside your project directory, and they will automatically appear in the Glance web interface.Next: [Immich](../Immich)
 Layout: [Layout](../Layout)

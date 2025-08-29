@@ -26,13 +26,14 @@
      ```
 
 3. **change your ip and create a db password and input it into `.env`: `cntrl^shift^c to copy` `cntrl^o` to save `cntrl^x` to exit**
+   * NOTE: if not using directory scheme of this guide change the place to store data
 
    ```
    openssl rand -hex 32
    nano .env
    ```
 
-4. **Start the container.**
+5. **Start the container.**
 
    * With both files in place, you can now start the Immich containers. The `-d` flag runs the containers in the background.
 
@@ -40,7 +41,7 @@
    docker compose up -d
    ```
 
-5. **Access the application.**
+6. **Access the application.**
 
    * Once the containers are running, you can access the Immich web interface by opening a web browser and navigating to your server's IP address on port `2283`.
 

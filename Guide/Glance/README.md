@@ -10,35 +10,31 @@
 
 1. **Create a project directory.**
 
-   * First, create a new folder for your Glance project. This is a good practice to keep all your application files organized. You can name it whatever you like, for example, `glance`.
+   * First, navigate to where you are storing your dockerfiles whcreate a new folder for your Glance project. 
 
    ```
    mkdir glance
    cd glance
    ```
 
-2. **Create the `docker-compose.yml` file.**
-
-   * Inside the `glance` directory, create a new file named `docker-compose.yml`.
-
-   * Copy and paste the contents from the `glance_compose` immersive above into this file.
-
-   * This file defines the `glance` service, its Docker image, ports, and data volume.
+2. **Create the docker compose file.**
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/compose.yml
+   ```
 
 3. **Create the `.env` file.**
-
-   * Next, create a new file in the same directory and name it `.env`.
-
-   * Copy and paste the contents from the `glance_env` immersive above into this file.
-
-   * **Important:** You need to find your `PUID` and `PGID` and replace the placeholder values (`1000`) with your actual IDs. To find them, open a terminal on your server and run:
-
+   
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/.env
+   nano .env
+   # Change the secret token by running openssl rand -base64 36 to create one
+   # Cntrl^O to save and cntrl^x to exit
    ```
-   # To find your PUID
-   id -u yourusername
-
-   # To find your PGID
-   id -g yourusername
+   
+4. get the assetts and config files
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/assets/
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/config/
    ```
 
 4. **Start the container.**

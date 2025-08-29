@@ -41,7 +41,7 @@
 
    * Once the containers are running, you can access the Fresh RSS web interface by opening a web browser and navigating to your server's IP address on port `8080`.
 
-   * For example, `http://<your-server-ip>:8080`.
+   * For example, `http://<your-server-ip>:8085`.
 
    * On your first visit, you will be guided through a simple setup process to configure your admin user and database connection.
 Next: [KaraKeep](../Karakeep)

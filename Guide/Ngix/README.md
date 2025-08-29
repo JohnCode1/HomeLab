@@ -83,6 +83,8 @@
    * For the domain, add your root domain (e.g., `hello.yourdomain.com`).
 
    * For the destination, add `<yourip>` and the port of the `helloworld` container (which is `8888` as defined in your `compose.yml`).
+  
+   * Enable `Websocket support` and `Block Common Exploits`
 
    * Go to the **SSL** tab, select the certificate you just created, and check all the boxes: "Force SSL," "HTTP/2 Support," "HSTS Subdomains," and "HSTS Enabled."
 
@@ -102,6 +104,32 @@
 
     * You can use subdomains with the custom location feature in NGIX.
    
+## Apps That Require a Specific Set Up:
+---
+* For Prowlar, Radarr, Bazarr: Go to Settings -> General:
+  * Enable proxy
+  * Proxy type: HTTP(S)
+  * Hostname: IP of Proxy
+  * Port: Port of app
+    * Ex. Radarr is 7878
+  * Uncheck Bypass Proxy for Local Addresses
+    * For Bazar remove local and 127.0.0.1
+* For Qbit:
+  * Paste the following in advanced:
+    ```bash
+    proxy_set_header Host $proxy_host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme; 
+    ```
+  * In Qbit go Settings -> WebUI:
+    * Check enable reverse proxy support:
+      * Add your proxies IP
+      * Verify All boxes are checked for Security
+      * Save and Retest and make sure you can connect via your proxy url
+      * Enable Host header validation and input your server domain
+        * EX: qbit.example.com
+      * Save
 Next: [Windows VM](../WindowsVM)
 Layout: [Layout](../Proxmox)
 

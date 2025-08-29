@@ -11,6 +11,11 @@
 * ⚙️ After the navigational links, I will list all the additional tweaks and terminal commands I have used in the past but are not currently in use. This allows you to easily find and copy the commands you need without having to constantly scroll.
 
   * > **Example:** If you follow the guide and later make a mistake, forcing you to restart your server from scratch, you can quickly find the commands you need in this section.
+    
+* ⚙️ For this guide I will be setting up proxmox. After setting up Proxmox I will then create a Container to use as two samba shares that will house all the media and docker files. After that I will create one VM to run all the apps.
+ * NOTE: For apps Next Cloud, Jellyfin, and TorrentUsenet stack you will need to make seperate directories on the VM/Container running those apps to store the docker files. If you store your docker files on a seperate VM/Container for those apps they run into issues currently and do not run properly.
+ * NOTE: For extra Security it is recommended to seperate the apps out more to seperate VMS/Containers which if you do this you will just have to create extra VMS/Containers. Just repeat the guide for setting up a container and/or VM then set up docker and/or samba from the guide.
+* ⚙️ After setting up the apps use netbird to connect into your apps or an overlay VPN of your choice. I do not have a guide for this yet and is at the bottom of my todo list due to the documentation being very nice and friendly of netbird.
 
 ### Next Page: Hardware Selection
 
@@ -61,23 +66,5 @@
 * [Other Apps](../OtherApps)
 
 * [Roadmap](../RoadMap)
-
-  * 🛠️ Finetune main apps
-
-  * 🌐 Add webui
-
-  * 🤖 Add ollama
-
-  * 💻 Add linux desktop
-
-  * 🔒 Add support for HTTPS
-
-  * 📈 Add network monitoring apps
-
-  * 🔄 Add alternative apps and apps I don't use (e.g., Homelab)
-
-  * 🛡️ Add guide for pfSense setup
-
-  * 🧹 Clean up and make guide more visually appealing
 
 Next: [Proxmox](../Proxmox)

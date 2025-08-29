@@ -144,9 +144,10 @@
     sudo mount -a
     ```
 
-17. Change the ownership of the mounted directories:
+17. Change the ownership of the mounted directories, first get your user id than change ownership with your id:
 
     ```
+    id -u
     sudo chown -R 1000:1000 /<path1>
     sudo chown -R 1000:1000 /<path2>
     ```

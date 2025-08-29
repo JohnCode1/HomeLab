@@ -53,7 +53,7 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
 
    * **Websockets Support:** Enable this option.
 
-   * **SSL:** Check the top two boxes to enforce SSL.
+   * **SSL:** Check the top all boxes.
 
    * **Custom Locations:** Add a new custom location with the following pasted in the body:
 
@@ -66,11 +66,12 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
 8. **Complete Nextcloud AIO Setup:**
 
    * Go to the Nextcloud AIO interface and submit your domain.
+  
+   * If you have the RAM check `fulltextsearch and clamav`
 
-   * Install "Nextcloud Hub 10".
-
-   * Check "full text search" and start the download.
-
+   * Read through and select any other options you want.
+      * I have: CLAMAV, COLLABORA, FULLTEXTSEARCH, IMAGINARY, WHITEBOARD, 
+     
    * Copy the default login credentials and log in to Nextcloud.
 
    * Go to "Accounts" to change your display name, password, and email.

@@ -37,7 +37,7 @@
    * With both files in place, you can now start the Immich containers. The `-d` flag runs the containers in the background.
 
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 5. **Access the application.**

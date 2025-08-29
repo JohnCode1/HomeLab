@@ -39,7 +39,9 @@
 
    ```
    docker compose up -d
+   docker compose logs
    ```
+
 
 6. **Access the application.**
 

@@ -28,7 +28,7 @@
 3. **create a db password and input it into `.env`: `cntrl^shift^c to copy` `cntrl^o` to save `cntrl^x` to exit**
 
    ```
-   openssl rand -base64 36
+   openssl rand -hex 32
    nano .env
    ```
 

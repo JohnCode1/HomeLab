@@ -31,10 +31,19 @@
    # Cntrl^O to save and cntrl^x to exit
    ```
    
-4. get the assetts and config files
+4. get the assetts and config files and create folders for them
    ```bash
-   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/assets/
-   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/config/
+   mkdir assets
+   cd assets
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/assets/user.css
+   cd ..
+   mkdir config
+   cd config
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/config/gaming.yml
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/config/glance.yml
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/config/home.yml
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/config/startpage.yml
+   cd ..
    ```
 
 4. **Start the container.**

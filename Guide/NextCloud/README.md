@@ -2,16 +2,16 @@
 
 This section provides a step-by-step guide for setting up Nextcloud on a Docker-enabled virtual machine.
 
-1. **Create a Directory:** Make a new directory to store all your Nextcloud files.
+1. **Create a Directory:** Make a new directory to store all your Nextcloud docker files.
 
    ```
-   mkdir nextcloud
+   mkdir nextclouddocker
    ```
 
 2. **Set Permissions:** Give your user the correct permissions for the new directory.
 
    ```
-   sudo chown -R 1000:1000 /nextcloud/
+   sudo chown -R 1000:1000 /nextclouddocker/
    ```
 
 3. **Pull the Docker File:** Download the necessary Docker Compose file.
@@ -35,12 +35,17 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
 6. **Access Nextcloud:** Go to your web browser and navigate to the IP address of your VM with the port.
 
    ```
-   http://<your-vm-ip>:8080
+   http://<your-vm-ip>:8088
    ```
-
-7. **Set Up Nginx Proxy:** Configure Nginx to proxy Nextcloud for a secure connection. Add a new Proxy Host with the following settings:
+* If you loose your password execute the following
+  ```bash
+  docker exec nextcloud-aio-mastercontainer grep password /mnt/docker-aio-config/data/configuration.json
+  ```
+7. **Set Up Nginx Proxy:** Configure Nginx to proxy Nextcloud for a secure connection or the proxy manager of your choice. Add a new Proxy Host with the following settings:
 
    * **Name:** `nextcloud.yourdomain.com` (or your preferred subdomain)
+  
+   *  **PORT:** `11000` (or your preferred subdomain)
 
    * **Scheme:** `https`
 

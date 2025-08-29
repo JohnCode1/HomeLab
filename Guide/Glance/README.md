@@ -35,7 +35,7 @@
    ```
    
    
-4. get the assetts and config files and create folders for them
+5. get the assetts and config files and create folders for them
    ```bash
    mkdir assets
    cd assets
@@ -50,15 +50,20 @@
    cd ..
    ```
 
-4. **Start the container.**
+6. **Start the container.**
 
    * With both files in place, you can now start the Glance container. The `-d` flag runs the container in the background.
 
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
-5. **Access the application.**
+7. **Check docker logs.**
+   ```bash
+   docker compose logs
+   ```
+
+8. **Access the application.**
 
    * Once the container is running, you can access the Glance web interface by opening a web browser and navigating to your server's IP address on port `8082`.
 

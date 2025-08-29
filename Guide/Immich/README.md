@@ -10,38 +10,27 @@
 
 1. **Create a project directory.**
 
-   * Create a new folder for your Immich project. This is a good practice to keep all your application files organized. You can name it whatever you like, for example, `immich`.
+   * navigate to where you are storing your docker files
 
    ```
    mkdir immich
    cd immich
    ```
 
-2. **Create the `docker-compose.yml` file.**
+2. **Create the `docker-compose.yml` and `.env` file.**
 
-   * Inside the `immich` directory, create a new file named `docker-compose.yml`.
+   * Inside the `immich` directory:
+     ```bash
+     wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/immich/compose.yml
+     wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/immich/.env
+     ```
 
-   * Copy and paste the contents from the `immich_compose` immersive above into this file.
-
-   * This file defines all the necessary services for Immich: the database, Redis, the microservices, the server, and the web client.
-
-3. **Create the `.env` file.**
-
-   * Next, create a new file in the same directory and name it `.env`.
-
-   * Copy and paste the contents from the `immich_env` immersive above into this file.
-
-   * **Important:** You need to find your `PUID` and `PGID` and replace the placeholder values (`1000`) with your actual IDs. To find them, open a terminal on your server and run:
+3. **create a db password and input it into `.env`: `cntrl^shift^c to copy` `cntrl^o` to save `cntrl^x` to exit**
 
    ```
-   # To find your PUID
-   id -u yourusername
-
-   # To find your PGID
-   id -g yourusername
+   openssl rand -base64 36
+   nano .env
    ```
-
-   * You must also update the `POSTGRES_PASSWORD` and `IMMICH_SERVER_URL` with your own secure credentials and server information.
 
 4. **Start the container.**
 

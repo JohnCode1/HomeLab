@@ -3,13 +3,13 @@
 1. **Create a project directory.**
 
    ```bash
-   mkdir cyberchef-docker
-   cd cyberchef-docker
+   mkdir cyberchef
+   cd cyberchef
    ```
 
 2. **Create the `docker-compose.yml` file.**
   ```bash
-  wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/Guide/Cyberchef/README.md
+  wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/cyberchef/compose.yml
   ```
 
 3. **Start the container.**

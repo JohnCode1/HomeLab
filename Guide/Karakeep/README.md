@@ -11,21 +11,25 @@
 
 2. **Create the `docker-compose.yml` file.**
 
-   * `wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/compose.yml`
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/compose.yml
+   ```
 
-3. **Create the `.env` file.**
+4. **Create the `.env` file.**
 
-   * `wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/.env`
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/karakeep/.env
+   ```
 
    * **Important:** You must update the `<Secret>` and `<master_key>` with your own strong, unique passwords.
 
-4. **Start the containers.**
+6. **Start the containers.**
 
    ```
    docker compose up -d
    ```
 
-5. **Access the application.**
+7. **Access the application.**
 
    * Once the containers are running, you can access the Karakeep web interface by opening a web browser and navigating to your server's IP address on port `3001`.
 

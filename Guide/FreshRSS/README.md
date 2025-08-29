@@ -34,7 +34,7 @@
    * With both files in place, you can now start the Fresh RSS containers. The `-d` flag runs the containers in the background.
 
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 6. **Access the application.**

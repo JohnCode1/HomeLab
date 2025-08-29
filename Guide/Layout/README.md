@@ -15,6 +15,7 @@
 * ⚙️ For this guide I will be setting up proxmox. After setting up Proxmox I will then create a Container to use as two samba shares that will house all the media and docker files. After that I will create one VM to run all the apps.
  * NOTE: For apps Next Cloud, Jellyfin, and TorrentUsenet stack you will need to make seperate directories on the VM/Container running those apps to store the docker files. If you store your docker files on a seperate VM/Container for those apps they run into issues currently and do not run properly.
  * NOTE: For extra Security it is recommended to seperate the apps out more to seperate VMS/Containers which if you do this you will just have to create extra VMS/Containers. Just repeat the guide for setting up a container and/or VM then set up docker and/or samba from the guide.
+ * NOTE: It is also helpful to make all your containers and vms static ips in your router settings and name them in acordance to the node id of your vm/container
 * ⚙️ After setting up the apps use netbird to connect into your apps or an overlay VPN of your choice. I do not have a guide for this yet and is at the bottom of my todo list due to the documentation being very nice and friendly of netbird.
 
 ### Next Page: Hardware Selection

@@ -26,10 +26,14 @@
    
    ```bash
    wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/glance/.env
-   nano .env
-   # Change the secret token by running openssl rand -base64 36 to create one
-   # Cntrl^O to save and cntrl^x to exit
    ```
+
+4. **Create a secret token and put into .env: `cntrl^shift^c` to copy token, `cntrl^o` to save file, and `cntrl^x` to exit**
+   ```bash
+    openssl rand -base64 36
+    nano .env
+   ```
+   
    
 4. get the assetts and config files and create folders for them
    ```bash

@@ -29,7 +29,12 @@
 
 4. **Run the containers.**
 
-   * Navigate to the directory where your `compose.yml` file is located.
+   * Navigate to the directory where your storing your docker files and mkdir for ngix.
+     ```bash
+     mkdir ngix
+     cd ngix
+     wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/nginx/compose.yml
+     ``` 
 
    * Run the following command to start the containers in the background:
 

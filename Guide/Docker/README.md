@@ -49,11 +49,11 @@ Follow these steps to install Docker on your system. These commands will downloa
    To be extra sure of the file name before removing it, you can run `ls` to list the files in your current directory.
 **NOTE:
 For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored locally on that machine and can not use samba. After creating a directory run the following to make sure docker can read and write and those directories
-```bash
+   ```bash
     sudo chown -R <id>:<id> /<path1>
     sudo chown -R <id>:<id> /<path2>
     sudo chown -R <id>:<id> /<path3>
-```
+   ```
 
     Next: [Ngix](../Ngix)
     Layout: [Layout](../Layout)

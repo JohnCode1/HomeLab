@@ -12,29 +12,23 @@
 
 1. **Create a project directory.**
 
-   * First, create a new folder for your Metube project. You can name it whatever you like, for example, `metube-docker`.
-
-   ```
-   mkdir metube-docker
-   cd metube-docker
+   ```bash
+   mkdir metube
+   cd metube
    ```
 
 2. **Create the `docker-compose.yml` file.**
 
-   * Inside the `metube-docker` directory, create a new file named `docker-compose.yml`.
-
-   * Copy and paste the contents from the `compose(1).yml` file you provided into this file.
-
-   * **Note:** You will need to change the volume path `<path/to/downloads>` to the actual path on your server where you want to store the downloaded videos.
+   ```bash
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/metube/compose.yml
+   ```
 
 ### 🚀 Step 2: Running the Container
 
 3. **Start the container.**
-
-   * With the `docker-compose.yml` file in place, you can now start the Metube container. The `-d` flag runs the container in the background.
-
+   
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
 ### ⚙️ Step 3: Accessing the Application

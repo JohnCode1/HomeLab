@@ -1,91 +1,25 @@
-\# This is a Docker Compose file. It defines and runs multi-container Docker applications.
-
-\# 'services' defines the containers that make up your application.
-
 services:
+  proxy:
+    image: 'jc21/nginx-proxy-manager:2.12.6'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - data:/data
+      - letsencrypt:/etc/letsencrypt
+    healthcheck:
+      test: ["CMD", "/usr/bin/check-health"]
+      interval: 10s
+      timeout: 3s
 
-  # The 'proxy' service uses the Nginx Proxy Manager image to manage web proxies.
-
-  proxy:
-
-    # Specifies the Docker image to use. 'jc21/nginx-proxy-manager' is a popular choice.
-
-    image: 'jc21/nginx-proxy-manager:2.12.6'
-
-    # Assigns a readable name to the container.
-
-    container\_name: nginx-proxy-manager
-
-    # Instructs Docker to restart the container unless it is explicitly stopped.
-
-    restart: unless-stopped
-
-    # This mode allows the container to share the host's network stack, which is necessary for Nginx Proxy Manager to work correctly.
-
-    network\_mode: host
-
-    # 'volumes' are used for persistent storage. They map directories from your host machine to the container.
-
-    volumes:
-
-      # This volume stores all the core data for Nginx Proxy Manager.
-
-      - data:/data
-
-      # This volume stores the Let's Encrypt certificates for SSL/TLS.
-
-      - letsencrypt:/etc/letsencrypt
-
-    # 'healthcheck' defines a command to check if the container is healthy.
-
-    healthcheck:
-
-      test: \["CMD", "/usr/bin/check-health"]
-
-      interval: 10s
-
-      timeout: 3s
-
-
-
-  # The 'ddns' service uses a Dynamic DNS (DDNS) updater for Cloudflare.
-
-
-
-\# This is a simple 'helloworld' service used for testing the proxy setup.
-
-  helloworld:
-
-    # Specifies the image for the test service.
-
-    image: 'karthequian/helloworld:latest'
-
-    # Assigns a name to the container.
-
-    container\_name: helloworld
-
-    # Instructs Docker to restart the container unless explicitly stopped.
-
-    restart: unless-stopped
-
-    # 'ports' maps a port on your host machine to a port inside the container.
-
-    ports:
-
-      # Maps port 8888 on the host to port 80 in the container.
-
-      - 8888:80/tcp
-
-
-
-\# 'volumes' defines the storage volumes that are used by the services.
+  helloworld:
+    image: 'karthequian/helloworld:latest'
+    container_name: helloworld
+    restart: unless-stopped
+    ports:
+      - 8888:80/tcp
 
 volumes:
+  data:
+  letsencrypt:
 
-  # The 'data' volume is for Nginx Proxy Manager's main data.
-
-  data:
-
-  # The 'letsencrypt' volume is for storing SSL certificates.
-
-  letsencrypt:

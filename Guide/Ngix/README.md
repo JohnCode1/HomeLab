@@ -2,11 +2,10 @@
 
 ## What We Will Be Doing
 
-* In this section, we will use **Nginx Proxy Manager** and a **Dynamic DNS (DDNS)** updater to expose your self-hosted apps securely to the internet.
+* In this section, we will use **Nginx Proxy Manager** 
 
 * The Nginx Proxy Manager container will act as a reverse proxy, handling all incoming web traffic and routing it to the correct app (like Jellyfin).
 
-* The DDNS container will automatically update your domain's DNS record with your home's public IP address, ensuring your domain always points to the correct location.
 
 ## **Guide**
 
@@ -28,32 +27,22 @@
 
    * Include all zones, then continue to the summary and copy the API token.
 
-4. **Edit your `docker-compose.yml` file.**
-
-   * Open your `compose.yml` file.
-
-   * Locate the `ddns` service.
-
-   * Replace `<API Token>` with the API token you just copied.
-
-   * For the `<domains>` section, you will need to add two entries: your main domain (e.g., `yourdomain.com`) and a wildcard entry for subdomains (e.g., `*.yourdomain.com`). This ensures that your DDNS service updates both.
-
-5. **Run the containers.**
+4. **Run the containers.**
 
    * Navigate to the directory where your `compose.yml` file is located.
 
    * Run the following command to start the containers in the background:
 
    ```
-   docker-compose up -d
+   docker compose up -d
    ```
 
-6. **Verify the containers are running.**
+5. **Verify the containers are running.**
 
    * Check the logs to ensure the DDNS container is updating your IP correctly:
 
    ```
-   docker-compose logs -f ddns
+   docker compose logs
    ```
 
    * You should see a message indicating a successful DNS update.
@@ -82,15 +71,15 @@
 
    * Enter your API token and save.
 
-9. **Create a Proxy Host.**
+9. **Create a Proxy Host to test.**
 
    * Click on **Proxy Hosts**.
 
    * Add a new proxy host.
 
-   * For the domain, add your root domain (e.g., `yourdomain.com`).
+   * For the domain, add your root domain (e.g., `hello.yourdomain.com`).
 
-   * For the destination, add `127.0.0.1` and the port of the `helloworld` container (which is `8888` as defined in your `compose.yml`).
+   * For the destination, add `<yourip>` and the port of the `helloworld` container (which is `8888` as defined in your `compose.yml`).
 
    * Go to the **SSL** tab, select the certificate you just created, and check all the boxes: "Force SSL," "HTTP/2 Support," "HSTS Subdomains," and "HSTS Enabled."
 

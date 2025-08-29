@@ -1,3 +1,5 @@
+**WARNING MAKE SURE YOU HAVE AT LEAST 64GB where your docker container will run
+
 ### Nextcloud Setup Guide
 
 This section provides a step-by-step guide for setting up Nextcloud on a Docker-enabled virtual machine.

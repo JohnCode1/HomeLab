@@ -1,10 +1,7 @@
 # 🔄 Setting up Backups
-
-Backing up your data is crucial. This guide provides two methods: a simple manual approach and a more robust, long-term solution using Proxmox Backup Server.
-
 ### **Method 1: Manual Backups (Quick & Simple)**
 
-This method is useful for a quick backup or if you have limited resources. It creates a snapshot of your virtual machine (VM) or container at a specific point in time.
+This method is useful for a quick backup or if you have limited resources.
 
 1. Navigate to the VM or container you want to back up.
 
@@ -40,7 +37,7 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
 
    * Navigate to **`Storage / Disks`** in the left-hand menu.
 
-   * Click **`ZFS`** to create a new storage pool. A **ZFS pool** is a powerful file system that provides features like snapshots and data integrity.
+   * Click **`ZFS`** to create a new storage pool.
 
    * Set the compression to **`lz4`**.
 

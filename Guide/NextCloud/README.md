@@ -20,7 +20,7 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
 3. **Pull the Docker File:** Download the necessary Docker Compose file.
 
    ```
-   wget <your-docker-compose-file-url>
+   wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/nextcloud/compose.yml
    ```
 
 4. **Start the Container:** Run the Docker Compose file to start the Nextcloud container in the background.

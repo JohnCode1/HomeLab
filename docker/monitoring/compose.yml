@@ -14,7 +14,7 @@ services:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:11.5-ubuntu
     container_name: grafana
     ports:
       - 3000:3000
@@ -35,7 +35,7 @@ services:
       - ./influxdb2/config:/etc/influxdb2
       - ./influxdb2/scripts:/docker-entrypoint-initdb.d
   telegraf:
-    image: telegraf:latest
+    image: telegraf:1.35.4
     pid: "host"
     container_name: telegraf
     # make sure to run 'getent group docker' on the host for appropriate group number for docker.

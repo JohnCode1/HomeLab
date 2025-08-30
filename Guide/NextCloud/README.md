@@ -1,4 +1,4 @@
-**WARNING MAKE SURE YOU HAVE AT LEAST 64GB where your docker container will run
+**WARNING Current issues with running dockerfile via samaba and setting up initial storage via samba. Can connect to samba after inital set up.
 
 ### Nextcloud Setup Guide
 
@@ -10,10 +10,11 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
    mkdir nextclouddocker
    ```
 
-2. **Set Permissions:** Give your user the correct permissions for the new directory.
+2. **Set Permissions:** Give your user the correct permissions for the new directory and make a directory to store the data.
 
    ```
    sudo chown -R 1000:1000 /nextclouddocker/
+   mkdir ncdata
    ```
 
 3. **Pull the Docker File:** Download the necessary Docker Compose file.
@@ -77,3 +78,5 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
    * Copy the default login credentials and log in to Nextcloud.
 
    * Go to "Accounts" to change your display name, password, and email.
+  
+   * Go to Admin Settings and check for issues

@@ -16,7 +16,7 @@ Follow these steps to install Docker on your system. These commands will downloa
    sudo sh get-docker.sh
    ```
 
-3. **Verify that Docker is running.** After the installation, you can use `systemctl` to check the status of the Docker service. Look for the word `active` in the output to confirm it's running correctly.
+3. **Verify that Docker is running.** After the installation, you can use `systemctl` to check the status of the Docker service. Look for the word `active` in the output to confirm it's running correctly. `cntrl^c` to exit
 
    ```
    sudo systemctl status docker

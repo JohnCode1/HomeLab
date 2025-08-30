@@ -40,7 +40,7 @@
 
 * [Docker](../Docker)
 
-* [Nginx Proxy Manager](../Nginx)
+* [Nginx Proxy Manager](../Ngix)
 
 * [Windows VM](../WindowsVM)
 

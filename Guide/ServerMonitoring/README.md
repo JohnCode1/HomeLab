@@ -53,6 +53,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 1. Edit the `prometheus.yml` file.
 
    ```
+   cd prometheus
    nano prometheus.yml
    ```
 

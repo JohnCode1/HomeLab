@@ -18,6 +18,8 @@
  * NOTE: It is also helpful to make all your containers and vms static ips in your router settings and name them in acordance to the node id of your vm/container
 * ⚙️ After setting up the apps use netbird to connect into your apps or an overlay VPN of your choice. I do not have a guide for this yet and is at the bottom of my todo list due to the documentation being very nice and friendly of netbird.
 
+### NEW ADDITIONS: Next cloud and server data monitoring stack. They are not linked along in the guide but you can find links for them at the bottom of this layout
+
 ### Next Page: Hardware Selection
 
 # 📖 List of All Pages
@@ -60,12 +62,16 @@
 
 * [Metube](../Metube)
 
-* [CyberChef](../CyberChef)
+* [CyberChef](../Cyberchef)
 
 * [Desktop Programs](../DesktopPrograms)
 
 * [Other Apps](../OtherApps)
 
 * [Roadmap](../RoadMap)
+
+* [NextCloud](../NextCloud)
+
+* [Server Data Monitoring](../ServerMonitoring)
 
 Next: [Proxmox](../Proxmox)

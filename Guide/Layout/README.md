@@ -36,7 +36,7 @@
 
 * [Samba](../Samba)
 
-* [Backup](../BackUp)
+* [Backup](../Backup)
 
 * [Docker](../Docker)
 

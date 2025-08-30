@@ -38,15 +38,17 @@ This guide will walk you through setting up a server monitoring stack using **Gr
    cd server-monitoring
    ```
 
-3. Edit the `docker-compose.yml` file to change the hostname.
+3. Run `getent group docker' 
+
+4. Edit the `docker-compose.yml` file to change the hostnames of your servers to monitor and change telegraf user XXX to the id you got gro.
 
    ```
    nano docker-compose.yml
    ```
 
-4. Change the `extra_hosts` to your server's hostname.
+5. Change the `extra_hosts` to your server's hostname.
 
-5. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
+6. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
 
 ### Step 3: Configure Prometheus
 
@@ -147,15 +149,35 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 9. Set the HTTP method to `GET`.
 
-### Step 9: Import Dashboards
+### Step 9: Import Dashboard for VMs/Containers
 
-1. Click on Dashboards -> import
+1. Click on Dashboards -> new -> import
 
 2. For the Node Exporter metrics, import the **Grafana Node Exporter Full 12486** dashboard.
 
 3. Set the data source for this dashboard to **Prometheus**.
 
-4. For Proxmox monitoring, import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
+### Step 10: Configure InfluxDB to monitor Proxmox
+
+1. Go to Influx DB -> Load Data -> Buckets -> Create Bucket proxmox
+
+2.  Go to the Proxmox web interface.
+
+3. Navigate to **Datacenter** -> **Metrics Server**.
+
+4. Add a new InfluxDB server.
+
+5. Give it a name.
+
+6. Enter the IP address of the server running InfluxDB.
+
+7. Set the protocol to `HTTP` and the port to `8086`.
+
+8. Enter the bucket as `proxmox`.
+
+9. enter your organization name and paste in your api key
+    
+10. For Proxmox monitoring go to grafana import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
 
 ## 🐳 Monitoring Docker and Proxmox
 
@@ -171,30 +193,21 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 3. Add your InfluxDB organization and bucket name.
 
-4. Add a new Grafana connection for Telegraf.
+4. Go to influxdb and add your bucket.
 
-5. Set the query language to `Flux`.
+5. restart the stack `docker compose restart`
 
-6. Turn off basic authentication and check `Skip TLS Verify`.
+6. Add a new Grafana connection for Telegraf -> influxdb.
 
-7. Paste in your token and bucket.
+7. Set the query language to `Flux`.
 
-8. Import the **Grafana 18389** dashboard to visualize Docker metrics.
+8. url is http://influxdb:8086 
 
-### Step 11: Configure InfluxDB on Proxmox
+9. Turn off basic authentication and check `Skip TLS Verify`.
 
-1. Go to the Proxmox web interface.
+10. Paste in your token, organization, and bucket.
 
-2. Navigate to **Datacenter** -> **Metrics Server**.
+11. Import the **Grafana 18389** dashboard to visualize Docker metrics and create a bucket.
 
-3. Add a new InfluxDB server.
+12. change bucket to localdocker
 
-4. Give it a name.
-
-5. Enter the IP address of the server running InfluxDB.
-
-6. Set the protocol to `HTTP` and the port to `8086`.
-
-7. Enter the bucket as `proxmox`.
-
-8. Paste in your InfluxDB API token.

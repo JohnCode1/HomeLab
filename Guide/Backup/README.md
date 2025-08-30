@@ -26,7 +26,7 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
 
 #### **Guide**
 
-1. **Install the Proxmox Backup Server:** Install the Proxmox Backup Server ISO onto a separate VM or physical machine.
+1. **Install the Proxmox Backup Server:** Install the Proxmox Backup Server ISO onto a separate VM or physical machine. Recomened giving it 32 GB of memory
 
    * Give it a name, such as `backup.local`.
 

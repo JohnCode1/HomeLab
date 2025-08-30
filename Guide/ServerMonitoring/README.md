@@ -16,7 +16,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
    sudo apt install prometheus-node-exporter
    ```
 
-3. Verify that the service is running.
+3. Verify that the service is running. cntrl^c to exit.
 
    ```
    sudo systemctl status prometheus-node-exporter
@@ -57,25 +57,25 @@ This guide will walk you through setting up a server monitoring stack using **Gr
    nano prometheus.yml
    ```
 
-2. Change the `targets` to your specific server IP addresses and ports.
+2. Change the `targets` to your specific server hostnames
 
 3. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
 
 ### Step 4: Update Host File
 
-1. Edit the system hosts file.
+1. Edit the system hosts file. 
 
    ```
    sudo nano /etc/hosts
    ```
 
-2. Add a new section for custom hostnames.
+2. Add a new section for custom hostnames. 
 
    ```
    # Custom Hostnames
    ```
 
-3. Add your IPs and hostnames to the file.
+3. Add your IPs and hostnames to the file. EX. 192.168.1.1 media
 
 4. Save the file and reboot the server to apply the changes.
 
@@ -123,9 +123,9 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 2. Log in with the default credentials: `admin` and `admin`.
 
-3. Change your login credentials immediately.
+3. Change your login credentials
 
-4. Add Prometheus as a data source and test the connection.
+4. On left hand side Select Connections -> Data sources -> Prometheus -> Save and test the connection.
 
 ### Step 8: Connect InfluxDB to Grafana
 

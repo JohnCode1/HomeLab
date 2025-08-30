@@ -26,10 +26,10 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 ### Step 2: Set Up Docker Compose Files
 
-1. Clone the required repository from GitHub.  Support Techhut if you found this useful
+1. Clone the required repository from GitHub.
 
    ```
-   git clone https://github.com/TechHutTV/homelab/tree/main/monitoring/
+   git clone https://github.com/JohnCode1/HomeLab/tree/main/docker/monitoring
    ```
 
 2. Navigate into the new directory.

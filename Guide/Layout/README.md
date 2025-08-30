@@ -54,7 +54,7 @@
 
 * [It Tools](../ItTools)
 
-* [Torrent/Usenet](../TorrentUsenet)
+* [Torrent/Usenet](../TorrentUseNet)
 
 * [Jellyfin](../Jellyfin)
 

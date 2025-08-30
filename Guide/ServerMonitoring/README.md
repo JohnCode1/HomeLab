@@ -149,11 +149,13 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 ### Step 9: Import Dashboards
 
-1. For the Node Exporter metrics, import the **Grafana Node Exporter Full** dashboard.
+1. Click on Dashboards -> import
 
-2. Set the data source for this dashboard to **Prometheus**.
+2. For the Node Exporter metrics, import the **Grafana Node Exporter Full 12486** dashboard.
 
-3. For Proxmox monitoring, import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
+3. Set the data source for this dashboard to **Prometheus**.
+
+4. For Proxmox monitoring, import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
 
 ## 🐳 Monitoring Docker and Proxmox
 

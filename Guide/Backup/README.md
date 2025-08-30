@@ -33,31 +33,34 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
 
 2. **Initial Setup:** Log in to your new Proxmox Backup Server using the web interface and run the promox Community Post install script. Select yes to all except for pbe test
 
-3. **Create a ZFS Pool:**
 
-   * Navigate to **`Storage / Disks`** in the left-hand menu.
+3. **Get the Fingerprint and Configure BackUp Server:**
 
-   * Click **`ZFS`** to create a new storage pool.
-
-   * Set the compression to **`lz4`**.
-
-4. **Get the Fingerprint:**
-
-   * Go to the **`Dashboard`** of your Proxmox Backup Server.
+   * Go to the **`Dashboard`** of your Proxmox Backup Server. EX. 192.168.1.1:8007
+  
+   * Create a ZFS Pool for your storage set comporession to `lz4`
 
    * Find and copy the **`Fingerprint`**. This unique ID is a security key used to connect your main Proxmox host to this backup server.
 
-5. **Connect to Your Main Proxmox Host:**
+4. **Connect to Your Main Proxmox Host:**
 
-   * Navigate to your **main Proxmox host**'s web interface.
+   * Navigate to your **main Proxmox host**'s web interface. 
 
    * Click on **`Datacenter`** -> **`Storage`**.
 
    * Click **`Add`** -> **`Proxmox Backup Server`**.
 
    * Enter the credentials for your backup server.
+  
+     * Root@pam for username
+    
+     * Select an id name of your choice
+    
+     * Enter IP of proxmox back up server
+    
+     * Datastore is name of server
 
-   * Paste the **`Fingerprint`** you copied earlier to securely link the two systems.
+     * Paste the **`Fingerprint`** you copied earlier 
 
 6. **Configure Backup Job:**
 
@@ -70,10 +73,18 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
    * Choose the **Proxmox Backup Server** as the backup destination.
 
    * Select a **schedule** (e.g., daily, weekly).
+  
+   * Select VMS to Backup
 
    * Set the **`Retention`** policy (how many backups to keep).
 
    * Set the **`Mode`** to **`Snapshot`**.
+  
+   * Verify Backups enable on disk for vms/containers
+  
+     * for containers go to resources select disk and ensure backup is checked
+    
+     * for vms go to hardware click on your disk select advanced and verify backup is checked.
 
 7. **Test the Backup:**
 

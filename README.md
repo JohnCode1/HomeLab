@@ -6,7 +6,7 @@
 
 ## 🌟 Current Status of project
 
-The current state of this guide is a compilation of my notes when using the below resources to make my home server I have gone through and double checked the current status of this guide on a new proxmox server and verified everything will run. I plan on adding more stuff but currently I plan on customizing my homeserver first and learning more about the programs in this guide. If you have any questions or get stuck somewhere please reach out to me on discord.
+The current state of this guide is a compilation of my notes when using the below resources to make my home server I have gone through and double checked the current status of this guide on a new proxmox server and verified everything will run. If you have any questions or get stuck somewhere please reach out to me on discord.
 ---
 
 ## 🌟 About This Project

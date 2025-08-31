@@ -1,6 +1,6 @@
 services:
   nextcloud-aio-mastercontainer:
-    image: ghcr.io/nextcloud-releases/all-in-one:20250325_084656
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
     init: true
     restart: always
     container_name: nextcloud-aio-mastercontainer # This line is not allowed to be changed.

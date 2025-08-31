@@ -14,6 +14,7 @@ This section provides a step-by-step guide for setting up Nextcloud on a Docker-
 
    ```
    sudo chown -R 1000:1000 /nextclouddocker/
+   cd /nextclouddocker/
    mkdir ncdata
    ```
 

@@ -81,7 +81,10 @@
         sudo apt update && sudo apt upgrade -y
         ```
     
-32. Run `sudo reboot` 
+32. Run `sudo reboot`
+
+33. make any directories you want and change permision to you `sudo chown -R <username>:<username> /<path>` 
+
 
 ## If using hardware transcoding
 

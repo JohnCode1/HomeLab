@@ -48,7 +48,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
    nano docker-compose.yml
    ```
 
-5. Change the `extra_hosts` to your server's hostname.
+5. Change the `host-gateway` to your server's hostname.
 
 6. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
 

@@ -1,3 +1,4 @@
+# If having issues check the image tag on docker hub
 services:
   proxy:
     image: 'jc21/nginx-proxy-manager:2.12.6'
@@ -11,7 +12,7 @@ services:
       test: ["CMD", "/usr/bin/check-health"]
       interval: 10s
       timeout: 3s
-
+  # after testing shut down container then remove this
   helloworld:
     image: 'karthequian/helloworld:latest'
     container_name: helloworld

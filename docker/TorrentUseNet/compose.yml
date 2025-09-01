@@ -1,10 +1,13 @@
+#For the images might need to change check docker hub if having issues pulling the images
 networks:
+  # Can change the name
   servernetwork:
+  # Can change the name
     name: servernetwork
     ipam:
       config:
         # Can change to prefered ip warning make sure you have no network conflicts
-        - subnet: 10.0.0.0/24
+        - subnet: 172.23.150.0/24
 
 services:
   # Using pia change as needed to set provider of choice in accordance with gluetuns github wiki
@@ -16,9 +19,10 @@ services:
     devices:
       - /dev/net/tun:/dev/net/tun 
     networks:
+      # Change as needed
       servernetwork:
         # Change as needed
-        ipv4_address: 10.0.0.2
+        ipv4_address: 172.23.150.2
     ports:
       - ${FIREWALL_VPN_INPUT_PORTS}:${FIREWALL_VPN_INPUT_PORTS} 
        # Qbittorrent web interface
@@ -128,9 +132,10 @@ services:
     ports:
       - 8989:8989
     networks:
+      # Change as needed
       servernetwork:
         # change if needed
-        ipv4_address: 10.0.0.3
+        ipv4_address: 172.23.150.3
 
   radarr:
     image: lscr.io/linuxserver/radarr:5.27.5-nightly
@@ -147,8 +152,10 @@ services:
     ports:
       - 7878:7878
     networks:
+      # Change as needed
       servernetwork:
-        ipv4_address: 10.0.0.4
+        # Change as needed
+        ipv4_address: 172.23.150.4
         
   lidarr:
     container_name: lidarr
@@ -165,9 +172,10 @@ services:
     ports:
       - 8686:8686
     networks:
+      # Change as needed
       servernetwork:
         # Change if needed
-        ipv4_address: 10.0.0.5
+        ipv4_address: 172.23.150.5
 
   bazarr:
     image: lscr.io/linuxserver/bazarr:version-v1.5.2
@@ -184,7 +192,26 @@ services:
     ports:
       - 6767:6767
     networks:
+      # Change as needed
       servernetwork:
         # Change as needed
-        ipv4_address: 10.0.0.6
+        ipv4_address: 172.23.150.6
+        
+  ytdl-sub:
+    image: ghcr.io/jmbannon/ytdl-sub:latest
+    container_name: ytdl-sub
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - DOCKER_MODS=linuxserver/mods:universal-cron
+    volumes:
+      - ./ytdl-sub:/config
+      - /data/youtube:/youtube
+    networks:
+      # Change as needed
+      servarrnetwork:
+        # Change as needed
+        ipv4_address: 172.39.0.8
+    restart: unless-stopped
   

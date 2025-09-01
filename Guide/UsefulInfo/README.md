@@ -116,4 +116,25 @@
 
 * **Use a Password Manager:** This is a crucial step for securing your homelab and all your online accounts. A password manager helps you create and store unique, strong passwords for every service, so a single breach doesn't compromise all your accounts.
 
+## 🔒 My setup
+
+* Below I have specific things I have done specifically to my set up
+
+  * **PIA VPN**
+   * I have PIA set up with obstufication to allow me to still access websites that block using a vpn
+   * I am also using multihop to allow me to still access local resources. This allows me to use my dns set up on my pfsense
+ 
+  * **Net Bird**
+   * I have net bird to access local resources when not home. This allows a more secure way to access then opening ports on my pfsense
+   * I had to configure my apps like next cloud to allow access to my netbird ip
+     
+  * **PFSense**
+   * I have alot of customization in this but will highlight some of the changes ive made
+    * Using PFNG Blocker to block list. I do this for extra protection against accidentally going to Ips that may be trying to steal my information
+    * I set up a custom rule to route all my domain name request to my nginx.
+    * I have two lans set up to isolate my server from all my other devices.
+ 
+  * **Running seperate Containers/VMS**
+   * I have set up multiple containers/VMS to isolate my machines 
+
 Next: [Layout](../Layout)

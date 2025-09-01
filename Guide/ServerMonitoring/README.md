@@ -29,13 +29,15 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 1. Clone the required repository from GitHub.
 
    ```
-   git clone https://github.com/JohnCode1/HomeLab/tree/main/docker/monitoring
+   git clone https://github.com/JohnCode1/HomeLab.git
+   mv HomeLab/docker/monitoring monitoring
+   rm -rf HomeLab
    ```
 
 2. Navigate into the new directory.
 
    ```
-   cd server-monitoring
+   cd monitoring
    ```
 
 3. Run `getent group docker' 

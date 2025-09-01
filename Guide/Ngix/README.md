@@ -1,4 +1,5 @@
 # 🌐 Setting up Nginx Proxy Manager
+* Warning you are now entering a area where small things matter. Depending on your network set up you may have to change things around.
 
 ## What We Will Be Doing
 
@@ -18,6 +19,8 @@
    * **Type CNAME record:** with the name `*` and your domain name.
 
    * **Important:** Disable the proxy feature on the DNS provider. This is crucial for self-hosted apps, especially streaming services like Jellyfin, to avoid violating terms of service.
+  
+   * * **Important:** if you have a firewall or router that suports host or dns over ride use that instead. 
 
 3. **Get a Cloudflare API Token.**
 

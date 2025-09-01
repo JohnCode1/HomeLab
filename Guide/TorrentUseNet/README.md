@@ -24,6 +24,12 @@
 5. Change all the placeholder values `<>` in both the `docker-compose.yml` and `.env` files.
 
 ### 🚀 Step 3: Running the Containers
+* If running on lxc navigate to etc/pve/lxc/105.conf and add
+```bash
+lxc.cgroup2.devices.allow: c 10:200 rwm
+lxc.mount.entry: /dev/net dev/net none bind,create=dir
+lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
+```
 
 5. Run the Docker Compose command to start all services in the background.
 

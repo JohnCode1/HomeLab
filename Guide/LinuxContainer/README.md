@@ -88,7 +88,7 @@
     ```
     ```bash
     # Create a new user
-    adduser - <name>
+    adduser <name>
     ```
     ```bash
     # Add the new user to the 'sudo' group for admin privileges

@@ -116,7 +116,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 2. Create a new account.
 
-3. Set the bucket name to `influxdb`.
+3. Set the bucket name to ```influxdb```.
 
 4. Copy the generated API token, as you will need it later.
 

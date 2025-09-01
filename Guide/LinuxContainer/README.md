@@ -84,10 +84,10 @@
 
     ```bash
     # Update and upgrade all packages
-    sudo apt update && sudo apt upgrade -y
+    apt update && apt upgrade -y
 
     # Create a new user
-    adduser <name>
+    adduser - <name>
 
     # Add the new user to the 'sudo' group for admin privileges
     adduser <name> sudo
@@ -109,11 +109,5 @@
 
     # Repeat the last two commands for all additional mounts
     ```
-# Start up
----
-1. Update `apt update && apt upgrade -y`
-2. create your user `adduser <username> && adduser <username> sudo` input a password
-3. change over to your user you created `su - <username>`
-4. make any directories you want and change permision to you `sudo chown -R <username>:<username> /<path>`
 
 Next: [Linux VM](../LinuxVM) Layout: [Layout](../Layout)

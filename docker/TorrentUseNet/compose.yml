@@ -15,12 +15,12 @@ services:
       - NET_ADMIN
     devices:
     # If running on an LXC see readme for more info.
-      - /dev/net/tun:/dev/net/tun 
+      - /dev/net/tun:/dev/net/tun
     networks:
       servarrnetwork:
         ipv4_address: 172.39.0.2
     ports:
-      - ${FIREWALL_VPN_INPUT_PORTS}:${FIREWALL_VPN_INPUT_PORTS} 
+      - ${FIREWALL_VPN_INPUT_PORTS}:${FIREWALL_VPN_INPUT_PORTS}
       - 8080:8080 # qbittorrent web interface
       - 6881:6881 # qbittorrent torrent port
       - 6789:6789 # nzbget
@@ -48,7 +48,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - WEBUI_PORT=8080 # must match "qbittorrent web interface" port number in gluetun's service above
-      - TORRENTING_PORT=${FIREWALL_VPN_INPUT_PORTS} 
+      - TORRENTING_PORT=${FIREWALL_VPN_INPUT_PORTS}
     volumes:
       - ./qbittorrent:/config
       - /data:/data
@@ -183,7 +183,7 @@ services:
     networks:
       servarrnetwork:
         ipv4_address: 172.39.0.6
-        
+
   ytdl-sub:
     image: ghcr.io/jmbannon/ytdl-sub:latest
     container_name: ytdl-sub

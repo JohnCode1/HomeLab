@@ -123,7 +123,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 5. Copy the generated API token, as you will need it later.
 
-### Step 7: Configure Grafana
+### Step 7: Configure Grafana for VM/Container Data
 
 1. Go to your browser and access Grafana on port `3000`.
 
@@ -136,32 +136,6 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 3. Change your login credentials
 
 4. On left hand side Select Connections -> Data sources -> Prometheus -> Save and test the connection.
-
-### Step 8: Connect InfluxDB to Grafana for vm/container nodes
-
-1. Add a new data source in Grafana.
-
-2. Select **InfluxDB** from the list.
-
-3. Set the name to
-      ```
-      proxmox
-      ```
-
-5. Choose the `InfluxQL` language.
-
-6. Set the URL to 
-      ```
-      http://influxdb:8086
-      ```
-
-8. Check `Skip TLS Verify`.
-
-9. Set the database name to `influxdb`.
-
-10. Use your copied API token as the password.
-
-11. Set the HTTP method to `GET`.
 
 ### Step 9: Import Dashboard for VMs/Containers
 
@@ -190,8 +164,33 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 8. Enter the bucket as `proxmox`.
 
 9. enter your organization name and paste in your api key
+
+1. Add a new data source in Grafana.
+
+2. Select **InfluxDB** from the list.
+
+3. Set the name to
+      ```
+      proxmox
+      ```
+
+5. Choose the `InfluxQL` language.
+
+6. Set the URL to 
+      ```
+      http://influxdb:8086
+      ```
+
+8. Check `Skip TLS Verify`.
+
+9. Set the database name to `proxmox`.
+
+10. Use your copied API token as the password.
+
+11. Set the HTTP method to `GET`.
+
     
-10. For Proxmox monitoring go to grafana import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
+11. For Proxmox monitoring go to grafana import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
 
 ## 🐳 Monitoring Docker
 

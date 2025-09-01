@@ -1,40 +1,33 @@
-#For the images might need to change check docker hub if having issues pulling the images
+##You can change the ips and network name but make sure you change all of them
 networks:
-  # Can change the name
-  servernetwork:
-  # Can change the name
-    name: servernetwork
+  servarrnetwork:
+    name: servarrnetwork
     ipam:
       config:
-        # Can change to prefered ip warning make sure you have no network conflicts
-        - subnet: 172.23.150.0/24
+        - subnet: 172.39.0.0/24
 
 services:
-  # Using pia change as needed to set provider of choice in accordance with gluetuns github wiki
+  # I am using PIA
   gluetun:
     image: qmcgaw/gluetun
     container_name: gluetun
     cap_add:
       - NET_ADMIN
     devices:
+    # If running on an LXC see readme for more info.
       - /dev/net/tun:/dev/net/tun 
     networks:
-      # Change as needed
-      servernetwork:
-        # Change as needed
-        ipv4_address: 172.23.150.2
+      servarrnetwork:
+        ipv4_address: 172.39.0.2
     ports:
       - ${FIREWALL_VPN_INPUT_PORTS}:${FIREWALL_VPN_INPUT_PORTS} 
-       # Qbittorrent web interface
-      - 8080:8080
-      #  Qbittorrent
-      - 6881:6881 
-      # Nzbget
-      - 6789:6789 
-      # Prowlarr
-      - 9696:9696 
+      - 8080:8080 # qbittorrent web interface
+      - 6881:6881 # qbittorrent torrent port
+      - 6789:6789 # nzbget
+      - 9696:9696 # prowlarr
     volumes:
       - ./gluetun:/gluetun
+    # Make a '.env' file in the same directory.
     env_file:
       - .env
     healthcheck:
@@ -43,9 +36,9 @@ services:
       timeout: 10s
       retries: 5
     restart: unless-stopped
-    
+
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:5.1.2
+    image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     restart: unless-stopped
     labels:
@@ -54,7 +47,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - WEBUI_PORT=8080 
+      - WEBUI_PORT=8080 # must match "qbittorrent web interface" port number in gluetun's service above
       - TORRENTING_PORT=${FIREWALL_VPN_INPUT_PORTS} 
     volumes:
       - ./qbittorrent:/config
@@ -71,6 +64,7 @@ services:
       start_period: 20s
       timeout: 10s
 
+  # See the 'qBittorrent Stalls with VPN Timeout' section for more information.
   deunhealth:
     image: qmcgaw/deunhealth
     container_name: deunhealth
@@ -84,7 +78,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   nzbget:
-    image: lscr.io/linuxserver/nzbget:version-v25.2
+    image: lscr.io/linuxserver/nzbget:latest
     container_name: nzbget
     environment:
       - PUID=${PUID}
@@ -102,7 +96,7 @@ services:
     network_mode: service:gluetun
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:2.0.5
+    image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
     environment:
       - PUID=${PUID}
@@ -117,8 +111,9 @@ services:
         condition: service_healthy
         restart: true
     network_mode: service:gluetun
-      sonarr:
-    image: lscr.io/linuxserver/sonarr:4.0.15
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     restart: unless-stopped
     environment:
@@ -132,13 +127,11 @@ services:
     ports:
       - 8989:8989
     networks:
-      # Change as needed
-      servernetwork:
-        # change if needed
-        ipv4_address: 172.23.150.3
+      servarrnetwork:
+        ipv4_address: 172.39.0.3
 
   radarr:
-    image: lscr.io/linuxserver/radarr:5.27.5-nightly
+    image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     restart: unless-stopped
     environment:
@@ -152,14 +145,12 @@ services:
     ports:
       - 7878:7878
     networks:
-      # Change as needed
-      servernetwork:
-        # Change as needed
-        ipv4_address: 172.23.150.4
-        
+      servarrnetwork:
+        ipv4_address: 172.39.0.4
+
   lidarr:
     container_name: lidarr
-    image: lscr.io/linuxserver/lidarr:2.14.1-nightly
+    image: lscr.io/linuxserver/lidarr:latest
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -172,13 +163,11 @@ services:
     ports:
       - 8686:8686
     networks:
-      # Change as needed
-      servernetwork:
-        # Change if needed
-        ipv4_address: 172.23.150.5
+      servarrnetwork:
+        ipv4_address: 172.39.0.5
 
   bazarr:
-    image: lscr.io/linuxserver/bazarr:version-v1.5.2
+    image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     restart: unless-stopped
     environment:
@@ -192,10 +181,8 @@ services:
     ports:
       - 6767:6767
     networks:
-      # Change as needed
-      servernetwork:
-        # Change as needed
-        ipv4_address: 172.23.150.6
+      servarrnetwork:
+        ipv4_address: 172.39.0.6
         
   ytdl-sub:
     image: ghcr.io/jmbannon/ytdl-sub:latest
@@ -209,9 +196,7 @@ services:
       - ./ytdl-sub:/config
       - /data/youtube:/youtube
     networks:
-      # Change as needed
       servarrnetwork:
-        # Change as needed
-        ipv4_address: 172.39.0.8
+        ipv4_address: 172.39.0.7
     restart: unless-stopped
-  
+

@@ -85,28 +85,35 @@
     ```bash
     # Update and upgrade all packages
     apt update && apt upgrade -y
-
+    ```
+    ```bash
     # Create a new user
     adduser - <name>
-
+    ```
+    ```bash
     # Add the new user to the 'sudo' group for admin privileges
     adduser <name> sudo
-
+    ```
+    ```bash
     # Switch to the new user
     su <name>
-
+    ```
+    ```bash
     # Reboot the container
     sudo reboot
-
-    # Remove the 'lost+found' directory from the mount point
+    ```
+    ```bash
+    # Remove the 'lost+found' directory from the mount point WARNING MAKE SURE THERE WAS NO IMPORTANT DATA ON THAT DRIVE
     sudo rmdir /<mount-point>/lost+found
+    ```
+    ```bash
     # Get user Id number
-   
     id
-   
+    ```
+    ```bash
     # Change the ownership of the mounted directory to the new user
     sudo chown -R <useidr>:<userid> /<mount-point>/
-
+    ```
     # Repeat the last two commands for all additional mounts
     ```
 

@@ -116,9 +116,12 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 2. Create a new account.
 
-3. Set the bucket name to ```influxdb```.
+3. Set the bucket name to
+   ```
+   influxdb
+   ```
 
-4. Copy the generated API token, as you will need it later.
+5. Copy the generated API token, as you will need it later.
 
 ### Step 7: Configure Grafana
 
@@ -134,25 +137,31 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 4. On left hand side Select Connections -> Data sources -> Prometheus -> Save and test the connection.
 
-### Step 8: Connect InfluxDB to Grafana
+### Step 8: Connect InfluxDB to Grafana for vm/container nodes
 
 1. Add a new data source in Grafana.
 
 2. Select **InfluxDB** from the list.
 
-3. Set the name to `Proxmox`.
+3. Set the name to
+      ```
+      proxmox
+      ```
 
-4. Choose the `InfluxQL` language.
+5. Choose the `InfluxQL` language.
 
-5. Set the URL to `http://influxdb:8086`.
+6. Set the URL to 
+      ```
+      http://influxdb:8086
+      ```
 
-6. Check `Skip TLS Verify`.
+8. Check `Skip TLS Verify`.
 
-7. Set the database name to `influxdb`.
+9. Set the database name to `influxdb`.
 
-8. Use your copied API token as the password.
+10. Use your copied API token as the password.
 
-9. Set the HTTP method to `GET`.
+11. Set the HTTP method to `GET`.
 
 ### Step 9: Import Dashboard for VMs/Containers
 
@@ -162,7 +171,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 3. Set the data source for this dashboard to **Prometheus**.
 
-### Step 10: Configure InfluxDB to monitor Proxmox
+### Step 10: Configure InfluxDB to monitor Proxmox Data Center
 
 1. Go to Influx DB -> Load Data -> Buckets -> Create Bucket proxmox
 
@@ -184,7 +193,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
     
 10. For Proxmox monitoring go to grafana import dashboard **10048** and set the source to `Proxmox` (the name you gave the InfluxDB data source).
 
-## 🐳 Monitoring Docker and Proxmox
+## 🐳 Monitoring Docker
 
 ### Step 10: Configure Telegraf for Docker
 

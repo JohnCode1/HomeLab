@@ -97,7 +97,7 @@
 
    * You should now be able to access these directories on your local network (LAN).
 
-# 🔗 Connecting to the Samba Share
+# 🔗 Connecting to the Samba Share on a Linux VM
 
 10. On the server you want to connect to your media server, install `cifs-utils`:
 
@@ -151,7 +151,16 @@
     sudo chown -R 1000:1000 /<path1>
     sudo chown -R 1000:1000 /<path2>
     ```
-
+# Connecting VIA Containers:
+1. navigate to shell of main node and run
+```bash
+mkdir /mnt/data
+mount -t cifs -o username=<>,password=<> //192.168.1.1/data /data
+```
+2. navigate to `/etc/pve/lxc/YOUR_CONTAINER_ID.conf` and add
+   ```bash
+   mp0: /mdata,mp=/datamount
+   ```
 # 📁 Creating File Paths
 
 * Use the following commands to create the file paths that will be used for future applications in this guide:

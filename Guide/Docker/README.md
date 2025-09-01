@@ -7,6 +7,8 @@ Follow these steps to install Docker on your system. These commands will downloa
 1. **Download the Docker installation script.** This command uses `curl` to download the official Docker installation script and saves it as `get-docker.sh` in your current directory.
 
    ```
+   #if on a container first run this to get curl
+   sudo apt install curl
    curl -fsSL https://get.docker.com -o get-docker.sh
    ```
 
@@ -25,6 +27,7 @@ Follow these steps to install Docker on your system. These commands will downloa
 4. **Create the Docker group.** This step creates a special user group called `docker`. This group is a key part of the setup, as it will allow your user to run Docker commands without needing `sudo` every time.
 
    ```
+   #this group should already be made but i do it just to check
    sudo groupadd docker
    ```
 

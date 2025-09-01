@@ -40,17 +40,20 @@ This guide will walk you through setting up a server monitoring stack using **Gr
    cd monitoring
    ```
 
-3. Run `getent group docker' 
+3. Run
+        ```bash
+        getent group docker
+        ```  
 
-4. Edit the `docker-compose.yml` file to change the hostnames of your servers to monitor and change telegraf user XXX to the id you got gro.
+5. Edit the `docker-compose.yml` file to change the hostnames of your servers to monitor and change telegraf user XXX to the id you got gro.
 
    ```
    nano docker-compose.yml
    ```
 
-5. Change the `host-gateway` to your server's hostname and `user` for telegraph.
+6. Change the `host-gateway` to your server's hostname and `user` for telegraph.
 
-6. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
+7. Save the file (`Ctrl + O`) and exit (`Ctrl + X`).
 
 ### Step 3: Configure Prometheus
 

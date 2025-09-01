@@ -38,7 +38,7 @@ services:
     restart: unless-stopped
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:5.1.2
     container_name: qbittorrent
     restart: unless-stopped
     labels:
@@ -78,7 +78,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   nzbget:
-    image: lscr.io/linuxserver/nzbget:latest
+    image: lscr.io/linuxserver/nzbget:version-v25.3
     container_name: nzbget
     environment:
       - PUID=${PUID}
@@ -96,7 +96,7 @@ services:
     network_mode: service:gluetun
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:latest
+    image: lscr.io/linuxserver/prowlarr:2.1.0-nightly
     container_name: prowlarr
     environment:
       - PUID=${PUID}
@@ -113,7 +113,7 @@ services:
     network_mode: service:gluetun
 
   sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
+    image: lscr.io/linuxserver/sonarr:4.0.15
     container_name: sonarr
     restart: unless-stopped
     environment:
@@ -131,7 +131,7 @@ services:
         ipv4_address: 172.39.0.3
 
   radarr:
-    image: lscr.io/linuxserver/radarr:latest
+    image: lscr.io/linuxserver/radarr:5.26.2
     container_name: radarr
     restart: unless-stopped
     environment:
@@ -150,7 +150,7 @@ services:
 
   lidarr:
     container_name: lidarr
-    image: lscr.io/linuxserver/lidarr:latest
+    image: lscr.io/linuxserver/lidarr:2.13.3
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -167,7 +167,7 @@ services:
         ipv4_address: 172.39.0.5
 
   bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
+    image: lscr.io/linuxserver/bazarr:1.5.2
     container_name: bazarr
     restart: unless-stopped
     environment:
@@ -185,7 +185,7 @@ services:
         ipv4_address: 172.39.0.6
 
   ytdl-sub:
-    image: ghcr.io/jmbannon/ytdl-sub:latest
+    image: ghcr.io/jmbannon/ytdl-sub:2025.09.01.post1
     container_name: ytdl-sub
     environment:
       - PUID=${PUID}

@@ -12,13 +12,13 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 2. Install the Prometheus Node Exporter to expose system metrics.
 
-   ```
+   ```bash
    sudo apt install prometheus-node-exporter
    ```
 
 3. Verify that the service is running. cntrl^c to exit.
 
-   ```
+   ```bash
    sudo systemctl status prometheus-node-exporter
    ```
 
@@ -28,7 +28,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Clone the required repository from GitHub.
 
-   ```
+   ```bash
    git clone https://github.com/JohnCode1/HomeLab.git
    mv HomeLab/docker/monitoring monitoring
    rm -rf HomeLab
@@ -36,18 +36,18 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 2. Navigate into the new directory.
 
-   ```
+   ```bash
    cd monitoring
    ```
 
-3. Run
-        ```bash
-        getent group docker
-        ```  
+3. Run:
+   ```bash
+   getent group docker
+   ```  
 
 5. Edit the `docker-compose.yml` file to change the hostnames of your servers to monitor and change telegraf user XXX to the id you got gro.
 
-   ```
+   ```bash
    nano docker-compose.yml
    ```
 
@@ -59,7 +59,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Edit the `prometheus.yml` file.
 
-   ```
+   ```bash
    cd prometheus
    nano prometheus.yml
    ```
@@ -72,13 +72,13 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Edit the system hosts file. 
 
-   ```
+   ```bash
    sudo nano /etc/hosts
    ```
 
 2. Add a new section for custom hostnames. 
 
-   ```
+   ```bash
    # Custom Hostnames
    ```
 
@@ -86,7 +86,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 4. Save the file and reboot the server to apply the changes.
 
-   ```
+   ```bash
    sudo reboot
    ```
 
@@ -94,13 +94,13 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Navigate back to the `server-monitoring` directory and start the Docker containers.
 
-   ```
+   ```bash
    docker compose up -d
    ```
 
 2. Check the logs of the running containers to ensure there are no errors.
 
-   ```
+   ```bash
    docker compose logs
    ```
 
@@ -110,7 +110,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Navigate to your browser and go to the InfluxDB web interface on port `8086`.
 
-   ```
+   ```bash
    http://<your-vm-ip>:8086
    ```
 
@@ -124,7 +124,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Go to your browser and access Grafana on port `3000`.
 
-   ```
+   ```bash
    http://<your-vm-ip>:3000
    ```
 
@@ -190,7 +190,7 @@ This guide will walk you through setting up a server monitoring stack using **Gr
 
 1. Edit the Telegraf configuration file.
 
-   ```
+   ```bash
    nano telegraf/telegraf.conf
    ```
 

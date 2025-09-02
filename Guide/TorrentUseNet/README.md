@@ -1,5 +1,3 @@
-# ⚠️ WARNING: I DO NOT CONDONE PIRACY OR ILLEGAL DOWNLOADS. THIS GUIDE IS FOR EDUCATIONAL PURPOSES ONLY.
-
 ## 🐳 Installation and Setup Guide
 
 ### 📂 Step 1: Directory Setup

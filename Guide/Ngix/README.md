@@ -109,14 +109,7 @@
    
 ## Apps That Require a Specific Set Up:
 ---
-* For Prowlar, Radarr, Bazarr: Go to Settings -> General:
-  * Enable proxy
-  * Proxy type: HTTP(S)
-  * Hostname: IP of Proxy
-  * Port: Port of app
-    * Ex. Radarr is 7878
-  * Uncheck Bypass Proxy for Local Addresses
-    * For Bazar remove local and 127.0.0.1
+
 * For Qbit:
   * Paste the following in advanced:
     ```bash

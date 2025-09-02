@@ -74,7 +74,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 14. In `Settings` -> `Downloads`, change the default save path, incomplete path, and `.torrent` file path.
 
-15. Test by copying a legally obtainable torrent link, like a Linux distribution ISO.
+15. Test by copying a torrent link, like a Linux distribution ISO.
 
 ### ⚙️ Step 6: Configuring NZBget
 

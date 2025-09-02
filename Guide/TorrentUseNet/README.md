@@ -84,33 +84,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 19. In `Settings` -> `Paths`, change the main destination and intermediate directory to your preferred paths.
 
-### 🔄 Step 7: Configuring Prowlarr
 
-20. Log in to Prowlarr at `http://<your-server-ip>:9696`.
-
-21. Select `Forms` authentication, create a username and password, and save.
-
-22. Add your preferred indexers.
-
-23. In `Settings` -> `Download Clients`, add NZBget. Change the host to your Gluetun container's IP (`10.0.0.2` by default), enter your NZBget username and password, and choose a default category.
-
-### 🎬 Step 8: Configuring the Arr Apps (Sonarr, Radarr, Lidarr, Bazarr)
-
-* The setup for these applications is similar and can be done at the same time.
-
-24. Log in to each app using its respective port. For example, Radarr is on port `7878`, and Sonarr is on `8989`.
-
-25. Create a username and password.
-
-26. Go to `Settings` -> `General` and copy the API key.
-
-27. In Prowlarr, go to the `Settings` for the app you are setting up and enter the API key and the IP address of that host.
-
-28. After setting up all the apps, go to `Movies` in Radarr or `Series` in Sonarr and import your existing media from your data directory.
-
-29. In `Settings`, add your download clients.
-
-30. Test the setup by searching for a movie or show you can obtain legally and downloading it.
 
 
 Next: [Jellyfin](../Jellyfin)

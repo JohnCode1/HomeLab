@@ -152,10 +152,10 @@
     sudo chown -R 1000:1000 /<path2>
     ```
 # Connecting VIA Containers:
-1. navigate to shell of main node and run
+1. navigate to shell of main node and run if not remapping your ids add 100000 please see -> for remapping ids https://pve.proxmox.com/wiki/Unprivileged_LXC_containers
 ```bash
 mkdir /mnt/data
-mount -t cifs -o username=<>,password=<> //192.168.1.1/data /data
+mount -t cifs -o username=<>,password=<>,uid=<id>,gid=<gid> //192.168.1.1/data /mnt/data
 ```
 2. navigate to `/etc/pve/lxc/YOUR_CONTAINER_ID.conf` and add
    ```bash

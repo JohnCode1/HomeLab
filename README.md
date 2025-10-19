@@ -52,6 +52,6 @@ Here are a few ways to contribute:
 * ➡️ Add to this repository with any tweaks you make. Once you get in the habit, this doesn't add much time to your workflow. I document every change I make in a pulled version of this repository, which adds only a few minutes at most to my workflow.
 * ➡️ Support the open-source apps used in this project.
 * ➡️ Support the references I've included.
-* ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects.
+* ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects
 ---
 **Next Page:** [Hardware](./Guide/Hardware) **Layout:** [Layout](./Guide/Layout)

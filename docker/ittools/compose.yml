@@ -1,8 +1,0 @@
-#docker run -d --name it-tools --restart unless-stopped -p 8080:80 corentinth/it-tools:latest
-services:
-  ittools:
-    container_name: ittools
-    image: corentinth/it-tools:2024.10.22-7ca5933
-    restart: unless-stopped
-    ports:
-      - 8081:80

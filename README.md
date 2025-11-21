@@ -1,32 +1,29 @@
 # Welcome!
   [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html) [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/johnep) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord-server-invite-link)
 
----
 ### 🌟 Current Status of project
+---
 The current state of this guide is a compilation of my notes when using the below resources to make my home server I have gone through and double checked the current status of this guide on a new proxmox server and verified everything will run. If you have any questions or get stuck somewhere please reach out to me on discord or check out the app's documentation.
 
 * If you get an issue spinning up a docker container check the release version is correct.
 ##### NEW ADDITIONS: Changed layout to a single page, and moved dockerfiles to there own repository.
 * I have made alot of changes to the structure of this and altered my docker compose files to be more up to date with the latest versions in my homelab.
     * This guide has not been retested from start to finish since changes so there might be a small issue. 
----
+
 ### 🌟 About This Project
+---
 This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab as a quick reference if i forgot a command.
 
 > ⚠️ **Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
 
----
-
 ### 🎯 Who This Is For (And Who It Isn't)
-
+---
 * ❌ Homelabs are **not** for someone who wants to set it up once and never touch it again. While you could argue that if you never open it to the worldwide web, you would be safe even if a security flaw is found later, you would be doing so at your own risk.
 * ✅ This is for someone who wants to reduce or completely eliminate their subscription fees.
 * ✅ This is for someone who loves to tinker with things.
 
----
-
 ### 🤝 References
-
+---
 A huge thank you to all the people referenced below—this project would not be possible without them. The people below have not given any direct advice to me or direct contributions, but I have learned alot from their videos or documentation.
 
 * **[TechhutTV](https://techhut.tv/)** - This creator helped me get started with my homelab and is the original main basis for my setup.
@@ -37,10 +34,8 @@ A huge thank you to all the people referenced below—this project would not be 
 * **[Techno Tim](https://technotim.live/)** - A helpful channel on hardware and software.
 * **[LinusTechTips](https://linusmediagroup.com/)** - A helpful channel for hardware and software.
 
----
-
-
 ### 📚 Structure of this Guide and How to Use It
+---
 * All of my current docker compose files and scripts are in separate repositories for apps.
 
 * It is perfectly fine to follow this guide **out of order** and choose what you want to implement. However, be aware that you may need to make some tweaks depending on where you start.
@@ -50,45 +45,36 @@ A huge thank you to all the people referenced below—this project would not be 
 * At the end of each page, after the link to the next section, I will include a link to get back to the table of contents for easy navigation.
 # 📖 Layout 
 ---
-* [HardwareSelections](#💻-Hardware)
+* [HardwareSelections](#-hardware-recommendations)
 
-* [UsefulInfo](#🧠-Useful-Information)
+* [UsefulInfo](#-useful-information)
 
-* [Proxmox](#Proxmox)
+* [Proxmox](#installing-proxmox)
 
-* [Linux Container](#LinuxContainer)
+* [Linux Container](#-creating-a-linux-container)
 
-* [Linux VM](#LinuxVM)
+* [Linux VM](#-setting-up-a-linux-vm)
 
-* [Samba](#Samba)
+* [Samba](#-setting-up-samba)
 
-* [Backup](#Backup)
+* [Backup](#-setting-up-backups)
 
-* [Docker](#Docker)
+* [Docker](#setting-up-docker)
 
-* [Nginx Proxy Manager](#Ngix)
+* [Nginx Proxy Manager Docker Container](#-setting-up-nginx-with-docker)
 
-* [Torrent/Usenet](#TorrentUseNet)
+* [Torrent/Usenet w/VPN Docker Container](#setting-up-torrentusenet-with-docker)
 
-* [Desktop Programs](#DesktopPrograms)
+* [Other Docker Apps](#-other-docker-apps)
 
-* [Other Apps](#OtherApps)
+* [Desktop Programs](#-desktop-software)
 
-* [Roadmap](#RoadMap)
+* [Roadmap](#-road-map)
 
+* [Contributing](#-contributing)
+
+### 💻 Hardware Recommendations
 ---
-[Layout](#📖-layout)
-[Layout](#📖Layout)
-[Layout](#layout)
-[Layout](#Layout)
-[Layout](#📖-Layout)
-[Layout](#📖layout)
-[Layout](#📖 layout)
-[Layout](#📖 Layout)
-
-
-# 💻 Hardware Recommendations
-
 * The type of hardware you use is totally up to you.
 
 * If you plan on using apps that might require **hardware acceleration** (e.g., Jellyfin), if you don't plan on using a gpu consider using an **Intel CPU** due to their internal graphics.
@@ -111,8 +97,7 @@ A huge thank you to all the people referenced below—this project would not be 
 
   * This is not required, as I was able to run some small LLMs on my old laptop fairly decently, but note that you will not get the same quality and speed as a setup with a GPU.
 
-### ⚙️ My Current Setup
-
+#### ⚙️ My Current Setup
 * **Lenovo Ideapad 1:** This is my main workstation I use to connect to my VMs.
 
 * **Old busted screen HP laptop:** This is currently running Proxmox.
@@ -123,8 +108,7 @@ A huge thank you to all the people referenced below—this project would not be 
 
   * While this does result in some performance loss compared to running the OS directly, it does not affect me with my current hardware and use case.
 
-### ✅ Bare Minimum Requirements
-
+#### ✅ Bare Minimum Requirements
 * A computer to connect to your Proxmox server.
 
 * A computer to run Proxmox that you can plug an Ethernet cable into.
@@ -138,12 +122,11 @@ A huge thank you to all the people referenced below—this project would not be 
 * A router with an open Ethernet port.
 
 > ⚠️ **Warning:** If you are using a laptop, it is recommended to remove the battery, as it could potentially swell from being constantly plugged in.
+[Layout](#-layout)
 
-[Layout](#layout)
 ### 🧠 Useful Information
 ---
 ##### 🌐 Networking
-
 * ⚠️ **Caution:** Networking can be complicated and I am still learning alot about network security. The main thing I recommend is to not open any ports/foward anyports to the WAN.
 * When you go through this guide, you will need to know a little about your current network. First, let's talk about the distinction between **WAN IPs** (Public IPs) and **LAN IPs** (Local/Private IPs).
 
@@ -184,7 +167,6 @@ A huge thank you to all the people referenced below—this project would not be 
 * **Clustering:** This means running multiple PCs together as a single unit to share resources and provide redundancy. This is an advanced topic, and once you cluster machines, it is very difficult to separate them.
 
 ##### 🐧 Linux
-
 * **Linux** is an open-source operating system that is widely used for servers and home labs. This guide uses it for many of the applications and server management tasks.
 
 * Here are some essential basic commands you will need:
@@ -209,13 +191,11 @@ A huge thank you to all the people referenced below—this project would not be 
   * There are alot more commands and tools in linux but these are some basic commands to help you out.
 
 ##### 🗄️ VMs and Containers: What's the Difference?
-
 * **Virtual Machines (VMs)**: Think of a VM as a complete, separate computer running inside your main computer. It has its own operating system (OS), virtual hardware (CPU, RAM, storage), and applications. This offers full isolation but uses more resources.
 
 * **Containers**: Think of a container as a lightweight, isolated application running on your existing OS. It shares the host's OS kernel but has its own file system and libraries. This is much more efficient and uses fewer resources than a VM.
 
 ##### 🐳 Docker Containers
-
 * **Docker** is a platform that makes it easy to create, deploy, and run applications in containers.
 
 * The way it works, in simple terms, is that developers create **"images"**—these are read-only templates that contain the application and all its dependencies. For example, an image might say, "use the Linux 24.04 OS and download Python."
@@ -243,7 +223,6 @@ A huge thank you to all the people referenced below—this project would not be 
   * `docker compose down`: Stops and removes the services defined in the `compose.yml` file.
 
 ##### 🔒 Helpful Privacy Tips
-
 * A key benefit of self-hosting is that you have more control over your data. With services like Google Cloud, you cannot prevent them from accessing your data as they see fit.
 
 * A few ways to enhance your privacy with little effort:
@@ -259,7 +238,6 @@ A huge thank you to all the people referenced below—this project would not be 
 * **Use a Password Manager:** This is a crucial step for securing your homelab and all your online accounts. A password manager helps you create and store unique, strong passwords for every service, so a single breach doesn't compromise all your accounts.
 
 ##### 🔒 My setup
-
 * Below I have specific things I have done specifically to my set up
 
   * **VPN**
@@ -281,12 +259,11 @@ A huge thank you to all the people referenced below—this project would not be 
     * This set up was perfect for me as I like the graphics of the set up and I am able to tweak anything I want in it to learn.
     * There is a article I read about some potential not best practices being used in omarchy, but my take is that I am not too worried and going to take that information to further my setup of arch.
     * For someone looking for a simpler setup I recommend checking out Ubuntu, or Pop OS.
-
 [Layout](#layout)
+
 ### Installing Proxmox
 ---
 ##### 💻 Hardware Requirements
-
 For this guide, you will need:
 
 * A USB drive.
@@ -298,13 +275,11 @@ For this guide, you will need:
 * An Ethernet cable to connect your home server to your router.
 
 ##### 💾 Software Requirements
-
 * You need a program to convert your USB into a bootable drive to install Proxmox.
 
   * I recommend using **Rufus** for this. or another alternative is balena etcher.
 
 ##### 📝 Guide
-
 1. Go to the official Proxmox website and download the Proxmox VE ISO installer.
 
 2. Go to the Rufus GitHub page, click on "Releases," and download the associated `.exe` file for your system (most likely `rufus-<version>.exe` for Windows 11).
@@ -510,14 +485,13 @@ For this guide, you will need:
   zfs list
   ```
 Layout: [Layout](#layout)
+
 ### 🐧 Creating a Linux Container
 ---
 ##### What We Will Be Doing
-
 * In this guide, we'll use a default Linux container to store media and run apps for your server. This is the **recommended approach** because containers are much more lightweight and efficient than full Virtual Machines (VMs).
 
 ##### Creating a Container
-
 * For this example, we're going to install **Ubuntu 24.04**, but you can use any Linux distribution you prefer.
 
 1. Navigate to your Proxmox web interface and click on `<your-hostname>` -> **`local`** (`<your-hostname>`).
@@ -575,8 +549,8 @@ Layout: [Layout](#layout)
 26. Repeat this process as necessary for any additional mounts you need.
 
     * For this guide, I recommend adding a separate `/data` mount and a `/docker` mount.
-##### Enabling Hardware Transcoding
 
+##### Enabling Hardware Transcoding
 * This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
 
    1. Navigate to your Proxmox host -> **`Shell`**.
@@ -628,12 +602,11 @@ Layout: [Layout](#layout)
     ```
     # Repeat the last two commands for all additional mounts
     ```
-
 [Layout](#layout)
-### 💻 Installing and Setting Up a Linux VM
+
+### 💻 Setting Up a Linux VM
 ---
 ##### What We Will Be Doing
-
 * We will be creating a **Virtual Machine (VM)** and installing applications onto it.
 
   * A more secure approach is to install each application on a separate VM. This guide combines them to save on resources, but be aware of the security trade-off. If one app gets compromised, all apps on that VM may be at risk.
@@ -643,7 +616,6 @@ Layout: [Layout](#layout)
   * For this guide, we'll use **Ubuntu Server 24.04**, but you can choose any Linux distribution you prefer.
 
 ##### Installing a Linux VM
-
 1. Go to the [Ubuntu Server download page](https://ubuntu.com/download/server "null"), right-click the "Download now" button, and copy the download link.
 
 2. In your Proxmox web interface, navigate to `<your-hostname>` -> **`local`** (`<your-hostname>`) -> **`ISO Images`**.
@@ -671,7 +643,6 @@ Layout: [Layout](#layout)
 13. On the "Confirm" tab, review your settings, and then click **`Finish`**.
 
 ##### Enabling Hardware Transcoding
-
 * This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
 
  * Navigate to your Proxmox host -> Hardware -> Add PCIE device -> Raw Device-> select device (If using a cpu it most likely wil be <cpu name> Graphics -> check all functions -> ADD.
@@ -719,7 +690,6 @@ Layout: [Layout](#layout)
 
 
 ##### If using hardware transcoding
-
 32. run the following to verify devices are there that you are using. You should see something like card0, card1, rednderD128
     ```bash
     ll /dev/dri
@@ -740,10 +710,10 @@ Layout: [Layout](#layout)
     intel_gpu_top
     ```
 36. `cntrl^C` to exit
-
 Layout: [Layout](#layout)
-### 📂 Samba
 
+### 📂 Setting Up Samba
+---
 * The purpose of Samba is to enable remote connections to your shared files.
 
 * Later in the guide, we'll create a VM to run apps, and we can use Samba to connect that app VM to these files, keeping all your data in one central location.
@@ -751,7 +721,6 @@ Layout: [Layout](#layout)
 * **Note:** Some apps require additional workarounds for this setup. For example, some users have reported issues running Jellyfin and torrent applications via Docker with this configuration, and had to create a separate folder on that VM to store the Docker files.
 
 ##### 🔧 Installing and Setting Up Samba
-
 1. Navigate to the VM or container you designated for media storage.
 
 2. Run the following command to install Samba and then enter your password:
@@ -905,19 +874,18 @@ mount -t cifs -o username=<>,password=<>,uid=<id>,gid=<gid> //192.168.1.1/data /
    ```bash
    mp0: /mdata,mp=/datamount
    ```
-##### 📁 Creating File Paths
 
+##### 📁 Creating File Paths
 * Use the following commands to create the file paths that will be used for future applications in this guide:
 
 ```
 mkdir -p downloads/qbittorrent/{completed,incomplete,torrents} && mkdir -p downloads/nzbget/{completed,intermediate,nzb,queue,tmp} && mkdir -p books/ && mkdir -p movies && mkdir -p music && mkdir -p shows && mkdir -p youtube
 ```
-
 [Layout](#layout)
+
 ### 🔄 Setting up Backups
 ---
 ##### **Method 1: Manual Backups (Quick & Simple)**
-
 This method is useful for a quick backup or if you have limited resources.
 
 1. Navigate to the VM or container you want to back up.
@@ -931,11 +899,9 @@ This method is useful for a quick backup or if you have limited resources.
 5. Click **`Backup`** to start the process.
 
 ##### **Method 2: Using a Dedicated Proxmox Backup Server (Recommended)**
-
 This is the recommended approach for a more professional and reliable setup. A dedicated backup server allows for scheduled backups, efficient data deduplication, and a centralized location for all your backup files.
 
 ###### **Guide**
-
 1. **Install the Proxmox Backup Server:** Install the Proxmox Backup Server ISO onto a separate VM or physical machine. Recomened giving it 32 GB of memory
 
    * Give it a name, such as `backup.local`.
@@ -1006,13 +972,11 @@ This is the recommended approach for a more professional and reliable setup. A d
    * Go to the **`Backup`** tab and click **`Backup now`**.
 
    * Your new backup job should appear in the dropdown. Select it and click `Backup` to run an immediate test.
-  
 [Layout](#layout)
 
-### 🐳 Installing Docker
+### 🐳 Setting Up Docker
 ---
 ##### 💻 Setup
-
 Follow these steps to install Docker on your system. These commands will download and install Docker and then set up your user account to use it without needing `sudo` every time.
 
 1. **Download the Docker installation script.** This command uses `curl` to download the official Docker installation script and saves it as `get-docker.sh` in your current directory.
@@ -1068,21 +1032,18 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     sudo chown -R <id>:<id> /<path2>
     sudo chown -R <id>:<id> /<path3>
    ```
-
 [Layout](#layout)
+
+### 🌐 Setting up Nginx Proxy Manager With Docker
 ---
-### 🌐 Setting up Nginx Proxy Manager
 * Warning you are now entering a area where small things matter. Depending on your network set up you may have to change things around.
 
 ##### What We Will Be Doing
-
 * In this section, we will use **Nginx Proxy Manager** 
 
 * The Nginx Proxy Manager container will act as a reverse proxy, handling all incoming web traffic and routing it to the correct app (like Jellyfin).
 
-
 ##### **Guide**
-
 1. **Obtain a domain name.** Go to a domain provider of your choice (like Cloudflare) and purchase a domain name. **⚠️ WARNING:** Make sure the TLD (e.g., `.us` or `.net`) allows for masking your information to prevent spam.
 
 2. **Configure DNS records.** In your DNS provider's settings, add the following records:
@@ -1181,7 +1142,6 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     * You can use subdomains with the custom location feature in NGIX.
    
 ##### Apps That Require a Specific Set Up:
-
 * For Qbit:
   * Paste the following in advanced:
     ```bash
@@ -1208,9 +1168,9 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     proxy_set_header X-Real-IP $remote_addr;
     ```
 [Layout](#layout)
----
-### Torrent/Usenet
 
+### Torrent/Usenet
+---
 1. Create or navigate to your desired directory to store the Docker files.
 
    ```
@@ -1285,18 +1245,15 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 18. Go to `Settings` -> `Incoming NZBs` and turn off `AppendCategoryDir`.
 
 19. In `Settings` -> `Paths`, change the main destination and intermediate directory to your preferred paths.
-
-
-
 [Layout](#layout)
+
+### ➡️ Other Docker Apps 
 ---
-### ➡️ Other Software - Check out my docker-files too see how i've set these apps up.
+* Check out my docker-files too see how i've set these apps up.
 #### This is a list of applications that did not necessarily need a full guide. - The reason for this is because apps constantly change, and it is more efficient to check there documentation.
 * Glance: Dashboard for homeserver. Great documentation with real time backup.
-    * Docker-file is up to date with my latest config.
 
 * Immich: Photo management
-    * Docker-file is my latest config but pulls a older image.
 
 * CyberChef: A great It tool. Simple container.
 
@@ -1304,7 +1261,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 * Jellyfin and Jellyseerr: A media streaming app.
 
-* **NetAlert**: Network tool for checking if 
+* **NetAlert**: Network tool for checking if new devices join the network. 
 
 * **Syncthing**: A tool for allowing realtime file syncronization. I use this all the time.
 
@@ -1326,8 +1283,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 * **Wishlist**: A web gui to create a wishlist.
 
-##Here is a list of alternative applications that are not currently in use or are being tested for potential future integration.
-
+#### Here is a list of alternative applications that are not currently in use or are being tested for potential future integration.
 
 * Next Cloud: A great alternative to a cloud feel.
     * I am currently not using this as it has many features that I don't necessarily need for just my self
@@ -1474,7 +1430,7 @@ Here is a list of other more common software programs.
 
 
 [Layout](#layout)
-### Roadmap
+### 🚀 Roadmap
 ---
 * Add netbird guide - need to get docker container to run
 

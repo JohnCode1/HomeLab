@@ -2,25 +2,22 @@
   [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.en.html) [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/johnep) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/your-discord-server-invite-link)
 
 ---
-## 🌟 Current Status of project
-I currently made a change to the structure of the guide and links currently do not work. Will fix soon, but wanted to commit these to see what it looks like on github.
+### 🌟 Current Status of project
 The current state of this guide is a compilation of my notes when using the below resources to make my home server I have gone through and double checked the current status of this guide on a new proxmox server and verified everything will run. If you have any questions or get stuck somewhere please reach out to me on discord or check out the app's documentation.
 
 * If you get an issue spinning up a docker container check the release version is correct.
-### NEW ADDITIONS: Changed layout to a single page, and moved dockerfiles to there own repository.
+##### NEW ADDITIONS: Changed layout to a single page, and moved dockerfiles to there own repository.
 * I have made alot of changes to the structure of this and altered my docker compose files to be more up to date with the latest versions in my homelab.
     * This guide has not been retested from start to finish since changes so there might be a small issue. 
 ---
-
-## 🌟 About This Project
-
+### 🌟 About This Project
 This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab as a quick reference if i forgot a command.
 
 > ⚠️ **Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
 
 ---
 
-## 🎯 Who This Is For (And Who It Isn't)
+### 🎯 Who This Is For (And Who It Isn't)
 
 * ❌ Homelabs are **not** for someone who wants to set it up once and never touch it again. While you could argue that if you never open it to the worldwide web, you would be safe even if a security flaw is found later, you would be doing so at your own risk.
 * ✅ This is for someone who wants to reduce or completely eliminate their subscription fees.
@@ -28,7 +25,7 @@ This guide is designed to make setting up a homelab more accessible to those who
 
 ---
 
-## 🤝 References
+### 🤝 References
 
 A huge thank you to all the people referenced below—this project would not be possible without them. The people below have not given any direct advice to me or direct contributions, but I have learned alot from their videos or documentation.
 
@@ -43,70 +40,45 @@ A huge thank you to all the people referenced below—this project would not be 
 ---
 
 
-# 📚 Structure of this Guide and How to Use It
+### 📚 Structure of this Guide and How to Use It
 * All of my current docker compose files and scripts are in separate repositories for apps.
 
-* 🔄 It is perfectly fine to follow this guide **out of order** and choose what you want to implement. However, be aware that you may need to make some tweaks depending on where you start.
+* It is perfectly fine to follow this guide **out of order** and choose what you want to implement. However, be aware that you may need to make some tweaks depending on where you start.
 
   * > **Example:** If you do not use the file setup that I have, you will have to adjust your own setup accordingly.
 
-* 🧭 At the end of each page, after the link to the next section, I will include a link to get back to the table of contents for easy navigation.
-    
-# 📖 List of All Pages
+* At the end of each page, after the link to the next section, I will include a link to get back to the table of contents for easy navigation.
+   📖 Layout 
+# layout 
+---
+* [HardwareSelections](#💻-Hardware)
 
-* [About Project](../..)
+* [UsefulInfo](#🧠-Useful-Information)
 
-* [HardwareSelections](../Hardware)
+* [Proxmox](#Proxmox)
 
-* [UsefulInfo](../UsefulInfo)
+* [Linux Container](#LinuxContainer)
 
-* [Proxmox](../Proxmox)
+* [Linux VM](#LinuxVM)
 
-* [Linux Container](../LinuxContainer)
+* [Samba](#Samba)
 
-* [Linux VM](../LinuxVM)
+* [Backup](#Backup)
 
-* [Samba](../Samba)
+* [Docker](#Docker)
 
-* [Backup](../Backup)
+* [Nginx Proxy Manager](#Ngix)
 
-* [Docker](../Docker)
+* [Torrent/Usenet](#TorrentUseNet)
 
-* [Nginx Proxy Manager](../Ngix)
+* [Desktop Programs](#DesktopPrograms)
 
-* [Windows VM](../WindowsVM)
+* [Other Apps](#OtherApps)
 
-* [Glance](../Glance)
-
-* [Immich](../Immich)
-
-* [Fresh RSS](../FreshRSS)
-
-* [Karakeep](../Karakeep)
-
-* [It Tools](../ItTools)
-
-* [Torrent/Usenet](../TorrentUseNet)
-
-* [Jellyfin](../Jellyfin)
-
-* [Metube](../Metube)
-
-* [CyberChef](../Cyberchef)
-
-* [Desktop Programs](../DesktopPrograms)
-
-* [Other Apps](../OtherApps)
-
-* [Roadmap](../RoadMap)
-
-* [NextCloud](../NextCloud)
-
-* [Server Data Monitoring](../ServerMonitoring)
-
+* [Roadmap](#RoadMap)
 
 ---
-**Layout:** [Layout](./Guide/Layout)
+[Layout](#layout)
 # 💻 Hardware Recommendations
 
 * The type of hardware you use is totally up to you.
@@ -131,7 +103,7 @@ A huge thank you to all the people referenced below—this project would not be 
 
   * This is not required, as I was able to run some small LLMs on my old laptop fairly decently, but note that you will not get the same quality and speed as a setup with a GPU.
 
-# ⚙️ My Current Setup
+### ⚙️ My Current Setup
 
 * **Lenovo Ideapad 1:** This is my main workstation I use to connect to my VMs.
 
@@ -143,7 +115,7 @@ A huge thank you to all the people referenced below—this project would not be 
 
   * While this does result in some performance loss compared to running the OS directly, it does not affect me with my current hardware and use case.
 
-# ✅ Bare Minimum Requirements
+### ✅ Bare Minimum Requirements
 
 * A computer to connect to your Proxmox server.
 
@@ -159,10 +131,10 @@ A huge thank you to all the people referenced below—this project would not be 
 
 > ⚠️ **Warning:** If you are using a laptop, it is recommended to remove the battery, as it could potentially swell from being constantly plugged in.
 
-Layout: [Layout](../Layout)
-# 🧠 Useful Information
-
-## 🌐 Networking
+[Layout](../Layout)
+### 🧠 Useful Information
+---
+##### 🌐 Networking
 
 * ⚠️ **Caution:** Networking can be complicated and I am still learning alot about network security. The main thing I recommend is to not open any ports/foward anyports to the WAN.
 * When you go through this guide, you will need to know a little about your current network. First, let's talk about the distinction between **WAN IPs** (Public IPs) and **LAN IPs** (Local/Private IPs).
@@ -193,7 +165,7 @@ Layout: [Layout](../Layout)
 
   * You should be able to find a good domain name for about `$7 - $12` per year. Be cautious of providers with expensive renewal fees. Again there are free options or you can get away without having a public domain as in this guide we keep it all local.
 
-## 🖥️ Proxmox
+##### 🖥️ Proxmox
 
 * **Proxmox** is a powerful, open-source server virtualization management platform. It allows you to create and manage both Virtual Machines (VMs) and containers from a single web interface.
 
@@ -203,7 +175,7 @@ Layout: [Layout](../Layout)
 
 * **Clustering:** This means running multiple PCs together as a single unit to share resources and provide redundancy. This is an advanced topic, and once you cluster machines, it is very difficult to separate them.
 
-## 🐧 Linux
+##### 🐧 Linux
 
 * **Linux** is an open-source operating system that is widely used for servers and home labs. This guide uses it for many of the applications and server management tasks.
 
@@ -225,15 +197,16 @@ Layout: [Layout](../Layout)
 
   * `sudo`: Stands for **S**uper**u**ser **do**. It allows you to run a command with administrative or root privileges. Use this command with caution.
 
-  * You can run multiple commands at once using `&&`. For example: `command1 && command2` will run `command2` only if `command1` is successful.
+  * You can run multiple commands at once using `&&`. For example: `command1 && command2` will run `command2` only if `command1` is successful. 
+  * There are alot more commands and tools in linux but these are some basic commands to help you out.
 
-## 🗄️ VMs and Containers: What's the Difference?
+##### 🗄️ VMs and Containers: What's the Difference?
 
 * **Virtual Machines (VMs)**: Think of a VM as a complete, separate computer running inside your main computer. It has its own operating system (OS), virtual hardware (CPU, RAM, storage), and applications. This offers full isolation but uses more resources.
 
 * **Containers**: Think of a container as a lightweight, isolated application running on your existing OS. It shares the host's OS kernel but has its own file system and libraries. This is much more efficient and uses fewer resources than a VM.
 
-## 🐳 Docker Containers
+##### 🐳 Docker Containers
 
 * **Docker** is a platform that makes it easy to create, deploy, and run applications in containers.
 
@@ -261,7 +234,7 @@ Layout: [Layout](../Layout)
 
   * `docker compose down`: Stops and removes the services defined in the `compose.yml` file.
 
-## 🔒 Helpful Privacy Tips
+##### 🔒 Helpful Privacy Tips
 
 * A key benefit of self-hosting is that you have more control over your data. With services like Google Cloud, you cannot prevent them from accessing your data as they see fit.
 
@@ -277,7 +250,7 @@ Layout: [Layout](../Layout)
 
 * **Use a Password Manager:** This is a crucial step for securing your homelab and all your online accounts. A password manager helps you create and store unique, strong passwords for every service, so a single breach doesn't compromise all your accounts.
 
-## 🔒 My setup
+##### 🔒 My setup
 
 * Below I have specific things I have done specifically to my set up
 
@@ -301,10 +274,10 @@ Layout: [Layout](../Layout)
     * There is a article I read about some potential not best practices being used in omarchy, but my take is that I am not too worried and going to take that information to further my setup of arch.
     * For someone looking for a simpler setup I recommend checking out Ubuntu, or Pop OS.
 
-Next: [Layout](../Layout)
-# ⚙️ Installing Proxmox
-
-## 💻 Hardware Requirements
+[Layout](../Layout)
+### Installing Proxmox
+---
+##### 💻 Hardware Requirements
 
 For this guide, you will need:
 
@@ -316,13 +289,13 @@ For this guide, you will need:
 
 * An Ethernet cable to connect your home server to your router.
 
-## 💾 Software Requirements
+##### 💾 Software Requirements
 
 * You need a program to convert your USB into a bootable drive to install Proxmox.
 
   * I recommend using **Rufus** for this. or another alternative is balena etcher.
 
-## 📝 Guide
+##### 📝 Guide
 
 1. Go to the official Proxmox website and download the Proxmox VE ISO installer.
 
@@ -378,9 +351,7 @@ For this guide, you will need:
 
 22. I have found that my USB drive was not always unmounted correctly after the installation. I recommend clicking "Shutdown" in the top-right corner, removing the USB drive after it shuts down, and then restarting the machine and logging in again.
 
-### Post-Installation Tweaks
-
-#### Disable Enterprise Repositories
+##### Disable Enterprise Repositories
 
 1. Navigate to your Proxmox node (the hostname you selected on the left under "Data Center").
 
@@ -398,9 +369,7 @@ For this guide, you will need:
 
    * After it's finished, close the Proxmox Console Window.
 
-### Additional Configurations
-
-#### Optimize Storage Partition
+##### Optimize Storage Partition
 
 * **Note:** Proxmox by default partitions your hard drive into two parts: one for the OS and one for your files. If you want to use the entire hard drive for your OS, follow these steps.
 
@@ -419,7 +388,7 @@ For this guide, you will need:
 
   2. Check the documentation if the commands don't work, as the volume name might be different.
 
-#### Mount a Second Disk for Storage
+##### Mount a Second Disk for Storage
 
 * If you have another disk for storage, you can mount it here.
 
@@ -439,7 +408,7 @@ For this guide, you will need:
 
 4. Click **"Create"**.
 
-#### PCIe Passthrough
+##### PCIe Passthrough
 
 * This will allow you to give a virtual machine direct access to a device, such as an Intel integrated GPU, an NVIDIA graphics card, or a USB port.
 
@@ -514,7 +483,7 @@ For this guide, you will need:
 
 13. Run `update-initramfs -u`.
 
-#### Create a Cluster
+##### Create a Cluster
 
 * > ⚠️ **Warning:** Undoing this is tricky. It is highly recommended to create a backup before doing this.
 
@@ -533,13 +502,13 @@ For this guide, you will need:
   zfs list
   ```
 Layout: [Layout](../Layout)
-# 🐧 Creating a Linux Container
-
-## What We Will Be Doing
+### 🐧 Creating a Linux Container
+---
+##### What We Will Be Doing
 
 * In this guide, we'll use a default Linux container to store media and run apps for your server. This is the **recommended approach** because containers are much more lightweight and efficient than full Virtual Machines (VMs).
 
-## Creating a Container
+##### Creating a Container
 
 * For this example, we're going to install **Ubuntu 24.04**, but you can use any Linux distribution you prefer.
 
@@ -598,7 +567,7 @@ Layout: [Layout](../Layout)
 26. Repeat this process as necessary for any additional mounts you need.
 
     * For this guide, I recommend adding a separate `/data` mount and a `/docker` mount.
-## Enabling Hardware Transcoding
+##### Enabling Hardware Transcoding
 
 * This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
 
@@ -652,10 +621,10 @@ Layout: [Layout](../Layout)
     # Repeat the last two commands for all additional mounts
     ```
 
-Layout: [Layout](../Layout)
-# 💻 Installing and Setting Up a Linux VM
-
-## What We Will Be Doing
+[Layout](#Layout)
+### 💻 Installing and Setting Up a Linux VM
+---
+##### What We Will Be Doing
 
 * We will be creating a **Virtual Machine (VM)** and installing applications onto it.
 
@@ -665,7 +634,7 @@ Layout: [Layout](../Layout)
 
   * For this guide, we'll use **Ubuntu Server 24.04**, but you can choose any Linux distribution you prefer.
 
-## Installing a Linux VM
+##### Installing a Linux VM
 
 1. Go to the [Ubuntu Server download page](https://ubuntu.com/download/server "null"), right-click the "Download now" button, and copy the download link.
 
@@ -693,7 +662,7 @@ Layout: [Layout](../Layout)
 
 13. On the "Confirm" tab, review your settings, and then click **`Finish`**.
 
-## Enabling Hardware Transcoding
+##### Enabling Hardware Transcoding
 
 * This process is for Intel Hardware Transcoding. It allows the VM to use your CPU Graphics for tasks like video encoding, which can significantly improve performance for apps like Jellyfin. > ⚠️ **Warning:** If using a laptop or some device with a screen you will most likely loose video to that screen
 
@@ -741,7 +710,7 @@ Layout: [Layout](../Layout)
 33. make any directories you want and change permision to you `sudo chown -R <username>:<username> /<path>` 
 
 
-## If using hardware transcoding
+##### If using hardware transcoding
 
 32. run the following to verify devices are there that you are using. You should see something like card0, card1, rednderD128
     ```bash
@@ -765,7 +734,7 @@ Layout: [Layout](../Layout)
 36. `cntrl^C` to exit
 
 Layout: [Layout](../Layout)
-# 📂 Purpose of Samba and What We Will Be Doing
+### 📂 Samba
 
 * The purpose of Samba is to enable remote connections to your shared files.
 
@@ -773,7 +742,7 @@ Layout: [Layout](../Layout)
 
 * **Note:** Some apps require additional workarounds for this setup. For example, some users have reported issues running Jellyfin and torrent applications via Docker with this configuration, and had to create a separate folder on that VM to store the Docker files.
 
-# 🔧 Installing and Setting Up Samba
+##### 🔧 Installing and Setting Up Samba
 
 1. Navigate to the VM or container you designated for media storage.
 
@@ -864,7 +833,7 @@ Layout: [Layout](../Layout)
 
    * You should now be able to access these directories on your local network (LAN).
 
-# 🔗 Connecting to the Samba Share on a Linux VM
+##### 🔗 Connecting to the Samba Share on a Linux VM
 
 10. On the server you want to connect to your media server, install `cifs-utils`:
 
@@ -918,7 +887,7 @@ Layout: [Layout](../Layout)
     sudo chown -R 1000:1000 /<path1>
     sudo chown -R 1000:1000 /<path2>
     ```
-# Connecting VIA Containers:
+##### Connecting VIA Containers:
 1. navigate to shell of main node and run if not remapping your ids add 100000 please see -> for remapping ids https://pve.proxmox.com/wiki/Unprivileged_LXC_containers
 ```bash
 mkdir /mnt/data
@@ -928,7 +897,7 @@ mount -t cifs -o username=<>,password=<>,uid=<id>,gid=<gid> //192.168.1.1/data /
    ```bash
    mp0: /mdata,mp=/datamount
    ```
-# 📁 Creating File Paths
+##### 📁 Creating File Paths
 
 * Use the following commands to create the file paths that will be used for future applications in this guide:
 
@@ -936,9 +905,10 @@ mount -t cifs -o username=<>,password=<>,uid=<id>,gid=<gid> //192.168.1.1/data /
 mkdir -p downloads/qbittorrent/{completed,incomplete,torrents} && mkdir -p downloads/nzbget/{completed,intermediate,nzb,queue,tmp} && mkdir -p books/ && mkdir -p movies && mkdir -p music && mkdir -p shows && mkdir -p youtube
 ```
 
-Next: [Backup](../Backup) Layout: [Layout](../Layout)
-# 🔄 Setting up Backups
-### **Method 1: Manual Backups (Quick & Simple)**
+[Layout](#layout)
+### 🔄 Setting up Backups
+---
+##### **Method 1: Manual Backups (Quick & Simple)**
 
 This method is useful for a quick backup or if you have limited resources.
 
@@ -952,15 +922,11 @@ This method is useful for a quick backup or if you have limited resources.
 
 5. Click **`Backup`** to start the process.
 
-### **Method 2: Using a Dedicated Proxmox Backup Server (Recommended)**
+##### **Method 2: Using a Dedicated Proxmox Backup Server (Recommended)**
 
 This is the recommended approach for a more professional and reliable setup. A dedicated backup server allows for scheduled backups, efficient data deduplication, and a centralized location for all your backup files.
 
-#### **Software Requirements**
-
-You will need the Proxmox Backup Server ISO image. You can download this from the official Proxmox website.
-
-#### **Guide**
+###### **Guide**
 
 1. **Install the Proxmox Backup Server:** Install the Proxmox Backup Server ISO onto a separate VM or physical machine. Recomened giving it 32 GB of memory
 
@@ -1033,11 +999,11 @@ You will need the Proxmox Backup Server ISO image. You can download this from th
 
    * Your new backup job should appear in the dropdown. Select it and click `Backup` to run an immediate test.
   
-  Layout: [Layout](../Layout)
+[Layout](../Layout)
 
-# 🐳 Installing Docker
-
-## 💻 Installation Steps
+### 🐳 Installing Docker
+---
+##### 💻 Setup
 
 Follow these steps to install Docker on your system. These commands will download and install Docker and then set up your user account to use it without needing `sudo` every time.
 
@@ -1095,18 +1061,19 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     sudo chown -R <id>:<id> /<path3>
    ```
 
-    Layout: [Layout](../Layout)
-    # 🌐 Setting up Nginx Proxy Manager
+[Layout](../Layout)
+---
+### 🌐 Setting up Nginx Proxy Manager
 * Warning you are now entering a area where small things matter. Depending on your network set up you may have to change things around.
 
-## What We Will Be Doing
+##### What We Will Be Doing
 
 * In this section, we will use **Nginx Proxy Manager** 
 
 * The Nginx Proxy Manager container will act as a reverse proxy, handling all incoming web traffic and routing it to the correct app (like Jellyfin).
 
 
-## **Guide**
+##### **Guide**
 
 1. **Obtain a domain name.** Go to a domain provider of your choice (like Cloudflare) and purchase a domain name. **⚠️ WARNING:** Make sure the TLD (e.g., `.us` or `.net`) allows for masking your information to prevent spam.
 
@@ -1205,8 +1172,7 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
 
     * You can use subdomains with the custom location feature in NGIX.
    
-## Apps That Require a Specific Set Up:
----
+##### Apps That Require a Specific Set Up:
 
 * For Qbit:
   * Paste the following in advanced:
@@ -1233,11 +1199,9 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Real-IP $remote_addr;
     ```
-Layout: [Layout](../Layout)
-Next: [Torrent/UseNet](../TorrentUseNet)
-## 🐳 Installation and Setup Guide
-
-### 📂 Step 1: Directory Setup
+[Layout](#Layout)
+---
+### Torrent/Usenet
 
 1. Create or navigate to your desired directory to store the Docker files.
 
@@ -1248,7 +1212,6 @@ Next: [Torrent/UseNet](../TorrentUseNet)
 
 2. Give your user read and write permissions for this directory.
 
-### ⚙️ Step 2: Docker Files
 
 3. Pull the `docker-compose.yml` and `.env` files for the torrent/usenet stack.
    ```bash
@@ -1256,9 +1219,8 @@ Next: [Torrent/UseNet](../TorrentUseNet)
    wget https://raw.githubusercontent.com/JohnCode1/HomeLab/refs/heads/main/docker/TorrentUseNet/compose.yml
    ```
 
-5. Change all the placeholder values `<>` in both the `docker-compose.yml` and `.env` files.
+4. Change all the placeholder values `<>` in both the `docker-compose.yml` and `.env` files.
 
-### 🚀 Step 3: Running the Containers
 * If running on lxc navigate to etc/pve/lxc/105.conf and add
 ```bash
 lxc.cgroup2.devices.allow: c 10:200 rwm
@@ -1278,8 +1240,6 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
    docker compose logs
    ```
 
-### 🔐 Step 4: VPN and IP Verification (Gluetun)
-
 7. Verify your VPN connection by running a command to check your public IP.
 
    ```
@@ -1292,8 +1252,6 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
    docker exec -it gluetun bash
    wget -qO- https://ipinfo.io
    ```
-
-### 🔧 Step 5: Configuring qBittorrent
 
 8. Access qBittorrent at `http://<your-server-ip>:8080`.
 
@@ -1311,7 +1269,6 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 15. Test by copying a torrent link, like a Linux distribution ISO.
 
-### ⚙️ Step 6: Configuring NZBget
 
 16. Log in to NZBget at `http://<your-server-ip>:6789` with the default username `nzbget` and password `tegbzn6789`.
 
@@ -1323,9 +1280,10 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 
 
-Layout: [Layout](../Layout)
-## ➡️ Other Software - Check out my docker-files too see how i've set these apps up.
-#### Here is a list of applications that did not necessarily need a full guide. - The reason for this is because apps constantly change, and it is more efficient to check there documentation.
+[Layout](#layout)
+---
+### ➡️ Other Software - Check out my docker-files too see how i've set these apps up.
+#### This is a list of applications that did not necessarily need a full guide. - The reason for this is because apps constantly change, and it is more efficient to check there documentation.
 * Glance: Dashboard for homeserver. Great documentation with real time backup.
     * Docker-file is up to date with my latest config.
 
@@ -1454,34 +1412,28 @@ Layout: [Layout](../Layout)
 
 * **Filebrowser**
 
-Next: [Roadmap](../RoadMap)
-Layout: [Layout](../Layout)
+[Layout](#layout)
 
 
-# 💻 My Personal Desktop Software Guide
-
+### 💻 Desktop Software
+---
 This guide is a curated list of software I currently use on my desktop that are not part of my server setup. It includes powerful tools for automation, enhanced productivity, and general use. The goal of this guide is to provide a comprehensive overview of a personal computing ecosystem designed for efficiency and control.
 
-## 🔧Package Management
-
-### Chocolatey
+#### Chocolatey
 
 **Chocolatey** is a command-line package manager for Windows that streamlines the process of installing, upgrading, and removing software. By using Chocolatey, you can easily maintain a consistent and up-to-date software environment without the hassle of manual installations. This is a crucial step for anyone looking to build a more efficient workflow.
 
-
-## 📝 Productivity and Tools
-
-### Zetlr
+#### Zetlr
 
 **Zetlr** is a powerful and intuitive Markdown editor that I use to create and manage all my documents, including this very guide. It's an excellent tool for taking notes, writing articles, and organizing structured content efficiently.
 
-### Todoist
+#### Todoist
 
 **Todoist** is an application I use for managing my to-do lists and organizing my tasks. It helps me stay on top of my daily responsibilities and long-term goals by providing a clean and effective way to plan my work.
 
-### Other Recommended Software
+#### Other Recommended Software
 
-Here is a more detailed list of other common but essential programs that contribute to a secure and productive desktop environment:
+Here is a list of other more common software programs. 
 
 * **Discord:** A flexible communication platform for connecting with communities and friends.
 
@@ -1513,23 +1465,26 @@ Here is a more detailed list of other common but essential programs that contrib
 
 
 
-Layout: [Layout](../Layout)
-# Roadmap
-    Add netbird guide - need to get docker container to run
+[Layout](#layout)
+### Roadmap
+---
+* Add netbird guide - need to get docker container to run
 
-    Add invoiceninja guide
+* Add invoiceninja guide
 
-    Add n8n Guide
+* Add n8n Guide
 
-    🧹 Clean up and make guide more structured and fix grammer
+* Intergrate Ubo App
 
-    Create a script to make the process more automated 
+* 🧹 Clean up and make guide more structured and fix grammer
 
-Layout: [Layout](../layout)
+* Create a script to make the process more automated 
+
+[Layout](#layout)
 
 
-## 🚀 Contributing
-
+### 🚀 Contributing
+---
 If you found this project helpful, please consider contributing.
 
 Here are a few ways to contribute:
@@ -1540,4 +1495,4 @@ Here are a few ways to contribute:
 * ➡️ Support the open-source apps used in this project.
 * ➡️ Support the references I've included.
 * ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects
-
+[Layout](#layout)

@@ -5,14 +5,13 @@
 ---
 The current state of this guide is a compilation of my notes when using the below resources to make my home server I have gone through and double checked the current status of this guide on a new proxmox server and verified everything will run. If you have any questions or get stuck somewhere please reach out to me on discord or check out the app's documentation.
 
-* If you get an issue spinning up a docker container check the release version is correct.
 ##### NEW ADDITIONS: Changed layout to a single page, and moved dockerfiles to there own repository.
 * I have made alot of changes to the structure of this and altered my docker compose files to be more up to date with the latest versions in my homelab.
     * This guide has not been retested from start to finish since changes so there might be a small issue. 
 
 ### 🌟 About This Project
 ---
-This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab as a quick reference if i forgot a command.
+This guide is designed to make setting up a homelab more accessible to those who are less involved in the technology world and to make the initial setup process easier and faster. I use this guide for my own personal homelab as a quick reference if i forgot a command when setting up a homelab.
 
 > ⚠️ **Caution:** This guide is intended for educational purposes. Any hardware damage or security breaches that may occur when using this guide are at your own risk.
 
@@ -47,29 +46,29 @@ A huge thank you to all the people referenced below—this project would not be 
 ---
 * [HardwareSelections](#-hardware-recommendations)
 
-* [UsefulInfo](#-useful-information)
+* [Useful Info](#-useful-information)
 
-* [Proxmox](#installing-proxmox)
+* [Installing Proxmox](#installing-proxmox)
 
-* [Linux Container](#-creating-a-linux-container)
+* [Setting Up Linux Containers](#-creating-a-linux-container)
 
-* [Linux VM](#-setting-up-a-linux-vm)
+* [Setting Up Linux VMs](#-setting-up-a-linux-vm)
 
-* [Samba](#-setting-up-samba)
+* [Setting Up Samba Shares](#-setting-up-samba)
 
-* [Backup](#-setting-up-backups)
+* [Setting up Backups](#-setting-up-backups)
 
-* [Docker](#setting-up-docker)
+* [Setting Up Docker](#-setting-up-docker)
 
-* [Nginx Proxy Manager Docker Container](#-setting-up-nginx-with-docker)
+* [Setting Up Nginx Proxy Manager Docker Container](#-setting-up-nginx-proxy-manager-with-docker)
 
-* [Torrent/Usenet w/VPN Docker Container](#setting-up-torrentusenet-with-docker)
+* [Setting Up Torrent/Usenet w/VPN Docker Container](#setting-up-torrentusenet-with-docker)
 
-* [Other Docker Apps](#-other-docker-apps)
+* [Other Docker Apps](#--other-docker-apps)
 
 * [Desktop Programs](#-desktop-software)
 
-* [Roadmap](#-road-map)
+* [Roadmap](#-roadmap)
 
 * [Contributing](#-contributing)
 
@@ -122,6 +121,7 @@ A huge thank you to all the people referenced below—this project would not be 
 * A router with an open Ethernet port.
 
 > ⚠️ **Warning:** If you are using a laptop, it is recommended to remove the battery, as it could potentially swell from being constantly plugged in.
+
 [Layout](#-layout)
 
 ### 🧠 Useful Information
@@ -240,26 +240,24 @@ A huge thank you to all the people referenced below—this project would not be 
 ##### 🔒 My setup
 * Below I have specific things I have done specifically to my set up
 
-  * **VPN**
-   * The provider I use is Private Internet Access(PIA) set up with obstufication to allow me to still access websites that block using a vpn this is set up at the router level and routes all my traffic through the vpn
-  * **Net Bird**
-   * I have net bird to access local resources when not home. This allows a more secure way to access then opening ports on my pfsense
-   * I use endpoint routing to route all my traffic through a ip that is routed through my PIA VPN so all of my traffic is then routed through the VPN.    
-  * **PFSense**
-   * I have alot of customization in this but will highlight some of the changes ive made
+**VPN**
+    * The provider I use is Private Internet Access(PIA) set up with obstufication to allow me to still access websites that block using a vpn this is set up at the router level and routes all my traffic through the vpn
+**Net Bird**
+    * I have net bird to access local resources when not home. This allows a more secure way to access then opening ports on my pfsense
+    * I use endpoint routing to route all my traffic through a ip that is routed through my PIA VPN so all of my traffic is then routed through the VPN.    
+**PFSense**
+    * I have alot of customization in this but will highlight some of the changes ive made
     * Using PFNG Blocker to block list. I do this for extra protection against accidentally going to Ips that may be trying to steal my information
     * I set up a custom rule to route all my domain name request to my nginx.(A set up up like this allows you to avoid buying a public domain name)
     * I have two lans set up to isolate my server from all my other devices.
- 
-  * **Running seperate Containers/VMS**
-   * I have set up multiple containers/VMS to isolate my machines
-  * **Linux OS**
+**Linux OS**
     * I have finally got tired of microsoft and swapped to primary OS of Arch Linux.
     * There is a newer prebuilt setup of Arch called omarchy which is just a bunch of shell scripts to customize Arch.
     * This set up was perfect for me as I like the graphics of the set up and I am able to tweak anything I want in it to learn.
     * There is a article I read about some potential not best practices being used in omarchy, but my take is that I am not too worried and going to take that information to further my setup of arch.
     * For someone looking for a simpler setup I recommend checking out Ubuntu, or Pop OS.
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### Installing Proxmox
 ---
@@ -399,8 +397,11 @@ For this guide, you will need:
 
 ##### For Intel/amd IOMU
 
-1. In the shell of your Proxmox host, run `nano /etc/default/grub`.
+1. In the shell of your Proxmox host, run:
 
+    ```bash
+    nano /etc/default/grub
+    ```
 2. Add the following line under the `GRUB_CMDLINE_LINUX=""` line to enable Intel IOMMU.
 
    ```
@@ -410,9 +411,16 @@ For this guide, you will need:
 
 3. Press `Ctrl + O`, then `Enter`, and `Ctrl + X` to save and exit.
 
-4. Run `update-grub`.
+4. Run:
+    
+    ```bash
+    update-grub
+    ```
 
-5. Run `dmesg | grep -e DMAR -e IOMMU` and `dmesg | grep 'remapping'` to verify that IOMMU and remapping are working correctly.
+5. Run to verify that IOMMU and remapping are working correctly.
+    ```bash
+    dmesg | grep -e DMAR -e IOMMU` and `dmesg | grep 'remapping'
+    ```
 
 ##### For NVIDIA GPU
 
@@ -420,7 +428,11 @@ For this guide, you will need:
 
 1. Verify that IOMMU and remapping are enabled using the commands above.
 
-2. Edit the grub file again: `nano /etc/default/grub`.
+2. Edit the grub file again: 
+
+    ```bash
+    nano /etc/default/grub
+    ```
 
 3. Add the following line:
 
@@ -428,10 +440,17 @@ For this guide, you will need:
    GRUB_CMDLINE_LINUX_DEFAULT="iommu=pt"
    ```
 
-4. Run `update-grub`.
+4. Run 
+    
+    ```bash
+    update-grub
+    ```
 
-5. Create a new file: `nano /etc/modules`.
+5. Create a new file:    
 
+    ```bash
+    nano /etc/modules
+    ```
 6. Add the following lines to it:
 
    ```
@@ -441,7 +460,11 @@ For this guide, you will need:
    vfio_virqfd
    ```
 
-7. Create a new file: `nano /etc/modprobe.d/blacklist.conf`.
+7. Create a new file: 
+
+    ```bash
+    nano /etc/modprobe.d/blacklist.conf
+    ```
 
 8. Add the following lines to it to blacklist the NVIDIA drivers:
 
@@ -452,19 +475,29 @@ For this guide, you will need:
    blacklist nvidia_drm
    ```
 
-9. Run `lspci -v` to get a list of your PCI devices.
+9. Run the following to get a list of your PCI devices.
+    ```bash
+    lspci -v
+    ```
 
 10. Find your GPU in the list and get its vendor and device ID. It will look like `[####:####]`.
 
-11. Create a new file: `nano /etc/modprobe.d/vfio.conf`.
+11. Create a new file: 
+    ```bash
+    nano /etc/modprobe.d/vfio.conf
+    ```
 
 12. Add the following line, replacing the IDs with your GPU's IDs:
 
-    ```
+    ```bash
     options vfio-pci ids=10de:1b06,10de:10ef disable_vga=1
     ```
 
-13. Run `update-initramfs -u`.
+13. Run 
+    
+    ```bash
+    update-initramfs -u
+    ```
 
 ##### Create a Cluster
 
@@ -484,7 +517,8 @@ For this guide, you will need:
   zpool list 
   zfs list
   ```
-Layout: [Layout](#layout)
+
+Layout: [Layout](#-layout)
 
 ### 🐧 Creating a Linux Container
 ---
@@ -555,7 +589,11 @@ Layout: [Layout](#layout)
 
    1. Navigate to your Proxmox host -> **`Shell`**.
 
-   2. Run `nano /etc/pve/lxc/<container id>.conf`.
+   2. Run 
+    
+    ```bash
+    nano /etc/pve/lxc/<container id>.conf
+    ```
 
    3. Add the following lines to enable hardware transcoding:
 
@@ -599,10 +637,10 @@ Layout: [Layout](#layout)
     ```bash
     # Change the ownership of the mounted directory to the new user
     sudo chown -R <useidr>:<userid> /<mount-point>/
-    ```
     # Repeat the last two commands for all additional mounts
     ```
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### 💻 Setting Up a Linux VM
 ---
@@ -680,37 +718,42 @@ Layout: [Layout](#layout)
 
 29. After the reboot, press enter and log in with the user you created.
 
-30. Run to update the VM.```bash
-        sudo apt update && sudo apt upgrade -y
-        ```
+30. Run to update the VM.
+    ```bash
+    sudo apt update && sudo apt upgrade -y
+    ```
     
-32. Run `sudo reboot`
+31. Run 
+    ```bash
+    sudo reboot
+    ```
 
-33. make any directories you want and change permision to you `sudo chown -R <username>:<username> /<path>` 
+32. make any directories you want and change permision to you `sudo chown -R <username>:<username> /<path>` 
 
 
 ##### If using hardware transcoding
-32. run the following to verify devices are there that you are using. You should see something like card0, card1, rednderD128
+33. run the following to verify devices are there that you are using. You should see something like card0, card1, rednderD128
     ```bash
     ll /dev/dri
     ```
     
-33. to enable user to use hardware transcoding run
+34. to enable user to use hardware transcoding run
     ```bash
     sudo usermod -aG render <user name>
     ```
     
-34. If using intel install intel-gpu-tool
+35. If using intel install intel-gpu-tool
     ```bash
     sudo apt install intel-gpu-tools
     ```
     
-35. verify running properly
+36. verify running properly
     ```bash
     intel_gpu_top
     ```
-36. `cntrl^C` to exit
-Layout: [Layout](#layout)
+37. `cntrl^C` to exit
+
+Layout: [Layout](#-layout)
 
 ### 📂 Setting Up Samba
 ---
@@ -881,7 +924,8 @@ mount -t cifs -o username=<>,password=<>,uid=<id>,gid=<gid> //192.168.1.1/data /
 ```
 mkdir -p downloads/qbittorrent/{completed,incomplete,torrents} && mkdir -p downloads/nzbget/{completed,intermediate,nzb,queue,tmp} && mkdir -p books/ && mkdir -p movies && mkdir -p music && mkdir -p shows && mkdir -p youtube
 ```
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### 🔄 Setting up Backups
 ---
@@ -972,7 +1016,8 @@ This is the recommended approach for a more professional and reliable setup. A d
    * Go to the **`Backup`** tab and click **`Backup now`**.
 
    * Your new backup job should appear in the dropdown. Select it and click `Backup` to run an immediate test.
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### 🐳 Setting Up Docker
 ---
@@ -1032,7 +1077,8 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     sudo chown -R <id>:<id> /<path2>
     sudo chown -R <id>:<id> /<path3>
    ```
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### 🌐 Setting up Nginx Proxy Manager With Docker
 ---
@@ -1167,9 +1213,10 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Real-IP $remote_addr;
     ```
-[Layout](#layout)
 
-### Torrent/Usenet
+[Layout](#-layout)
+
+### Setting Up Torrent/Usenet with Docker
 ---
 1. Create or navigate to your desired directory to store the Docker files.
 
@@ -1245,7 +1292,8 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 18. Go to `Settings` -> `Incoming NZBs` and turn off `AppendCategoryDir`.
 
 19. In `Settings` -> `Paths`, change the main destination and intermediate directory to your preferred paths.
-[Layout](#layout)
+
+[Layout](#-layout)
 
 ### ➡️ Other Docker Apps 
 ---
@@ -1376,7 +1424,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
 
 * **Filebrowser**
 
-[Layout](#layout)
+[Layout](#-layout)
 
 
 ### 💻 Desktop Software
@@ -1427,9 +1475,8 @@ Here is a list of other more common software programs.
 
 * **Typts**
 
+[Layout](-#layout)
 
-
-[Layout](#layout)
 ### 🚀 Roadmap
 ---
 * Add netbird guide - need to get docker container to run
@@ -1444,8 +1491,7 @@ Here is a list of other more common software programs.
 
 * Create a script to make the process more automated 
 
-[Layout](#layout)
-
+[Layout](#-layout)
 
 ### 🚀 Contributing
 ---
@@ -1459,4 +1505,4 @@ Here are a few ways to contribute:
 * ➡️ Support the open-source apps used in this project.
 * ➡️ Support the references I've included.
 * ➡️ Buy me a coffee to allow me to dedicate more time to this and other open-source projects
-[Layout](#layout)
+[Layout](#-layout)

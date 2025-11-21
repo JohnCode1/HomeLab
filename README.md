@@ -48,8 +48,7 @@ A huge thank you to all the people referenced below—this project would not be 
   * > **Example:** If you do not use the file setup that I have, you will have to adjust your own setup accordingly.
 
 * At the end of each page, after the link to the next section, I will include a link to get back to the table of contents for easy navigation.
-   📖 Layout 
-# layout 
+# 📖 Layout 
 ---
 * [HardwareSelections](#💻-Hardware)
 
@@ -78,7 +77,12 @@ A huge thank you to all the people referenced below—this project would not be 
 * [Roadmap](#RoadMap)
 
 ---
+[Layout](#📖-layout)
+[Layout](#📖Layout)
 [Layout](#layout)
+[Layout](#Layout)
+[Layout](#📖-Layout)
+[Layout](#📖layout)
 # 💻 Hardware Recommendations
 
 * The type of hardware you use is totally up to you.

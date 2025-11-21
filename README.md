@@ -83,6 +83,10 @@ A huge thank you to all the people referenced below—this project would not be 
 [Layout](#Layout)
 [Layout](#📖-Layout)
 [Layout](#📖layout)
+[Layout](#📖 layout)
+[Layout](#📖 Layout)
+
+
 # 💻 Hardware Recommendations
 
 * The type of hardware you use is totally up to you.
@@ -135,7 +139,7 @@ A huge thank you to all the people referenced below—this project would not be 
 
 > ⚠️ **Warning:** If you are using a laptop, it is recommended to remove the battery, as it could potentially swell from being constantly plugged in.
 
-[Layout](../Layout)
+[Layout](#layout)
 ### 🧠 Useful Information
 ---
 ##### 🌐 Networking
@@ -278,7 +282,7 @@ A huge thank you to all the people referenced below—this project would not be 
     * There is a article I read about some potential not best practices being used in omarchy, but my take is that I am not too worried and going to take that information to further my setup of arch.
     * For someone looking for a simpler setup I recommend checking out Ubuntu, or Pop OS.
 
-[Layout](../Layout)
+[Layout](#layout)
 ### Installing Proxmox
 ---
 ##### 💻 Hardware Requirements
@@ -505,7 +509,7 @@ For this guide, you will need:
   zpool list 
   zfs list
   ```
-Layout: [Layout](../Layout)
+Layout: [Layout](#layout)
 ### 🐧 Creating a Linux Container
 ---
 ##### What We Will Be Doing
@@ -625,7 +629,7 @@ Layout: [Layout](../Layout)
     # Repeat the last two commands for all additional mounts
     ```
 
-[Layout](#Layout)
+[Layout](#layout)
 ### 💻 Installing and Setting Up a Linux VM
 ---
 ##### What We Will Be Doing
@@ -737,7 +741,7 @@ Layout: [Layout](../Layout)
     ```
 36. `cntrl^C` to exit
 
-Layout: [Layout](../Layout)
+Layout: [Layout](#layout)
 ### 📂 Samba
 
 * The purpose of Samba is to enable remote connections to your shared files.
@@ -1003,7 +1007,7 @@ This is the recommended approach for a more professional and reliable setup. A d
 
    * Your new backup job should appear in the dropdown. Select it and click `Backup` to run an immediate test.
   
-[Layout](../Layout)
+[Layout](#layout)
 
 ### 🐳 Installing Docker
 ---
@@ -1065,7 +1069,7 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     sudo chown -R <id>:<id> /<path3>
    ```
 
-[Layout](../Layout)
+[Layout](#layout)
 ---
 ### 🌐 Setting up Nginx Proxy Manager
 * Warning you are now entering a area where small things matter. Depending on your network set up you may have to change things around.
@@ -1203,7 +1207,7 @@ For apps jellyfin, nextcloud, and QbitUsenet the docker files must be stored loc
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Real-IP $remote_addr;
     ```
-[Layout](#Layout)
+[Layout](#layout)
 ---
 ### Torrent/Usenet
 
